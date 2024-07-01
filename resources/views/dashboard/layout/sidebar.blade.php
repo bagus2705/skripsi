@@ -15,6 +15,13 @@
                                 My Post
                             </a>
                         </li>
+                        <li class="nav-item">
+                            <a class="nav-link"
+                                href="/">
+                                <span data-feather="file=text" class="align-text-bottom"></span>
+                                Home
+                            </a>
+                        </li>
                     </ul>
                     @can('admin')
                         <h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3
@@ -22,11 +29,18 @@
                             <span>Admin</span>
                         </h6>
                         <ul class="nav flex-column">
-
                             <li class="nav-item">
                                 <a class="nav-link {{ Request::is('dashboard/categories*') ? 'active' : '' }}" aria-current="page" href="/dashboard/categories">
                                     <span data-feather="grid" class="align-text-bottom"></span>
                                     Categories
+                                </a>
+                            </li>
+                        </ul>
+                        <ul class="nav flex-column">
+                            <li class="nav-item">
+                                <a class="nav-link {{ Request::is('dashboard/scripts*') ? 'active' : '' }}" aria-current="page" href="/dashboard/scripts">
+                                    <span data-feather="grid" class="align-text-bottom"></span>
+                                    Scripts
                                 </a>
                             </li>
                         </ul>

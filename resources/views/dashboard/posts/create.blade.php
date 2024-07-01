@@ -10,7 +10,7 @@
             <div class="mb-3">
                 <label for="title" class="form-label">Title</label>
                 <input type="text" class="form-control @error('title') is-invalid @enderror" id="title"
-                    name="title" autofocus required value={{ old('title') }}>
+                    name="title" autofocus required value="{{ old('title') }}">
                 @error('title')
                     <div class="invalid-feedback">
                         {{ $message }}
@@ -20,7 +20,7 @@
             <div class="mb-3">
                 <label for="slug" class="form-label">Slug</label>
                 <input type="text" class="form-control @error('slug') is-invalid @enderror" id="slug" name="slug"
-                    readonly value={{ old('slug') }}>
+                    readonly >
                 @error('slug')
                     <div class="invalid-feedback">
                         {{ $message }}
@@ -35,7 +35,7 @@
                             <option value="{{ $category->id }}"selected>{{ $category->name }}</option>
                         @else
                             <option value="{{ $category->id }}">{{ $category->name }}</option>
-                        @endif
+                            @endif
                     @endforeach
                 </select>
             </div>
