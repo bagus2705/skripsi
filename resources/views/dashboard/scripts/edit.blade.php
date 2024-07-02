@@ -111,7 +111,7 @@
                         {{ $message }}
                     </div>
                 @enderror
-                <button type="button" class="btn btn-secondary mt-2" onclick="performOCR()">Perform OCR</button>
+                <button type="button" class="btn btn-secondary mt-2" onclick="performOCR()">Perform OCR for Transkrip</button>
             </div>
 
             <div class="mb-3">

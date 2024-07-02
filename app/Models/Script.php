@@ -32,18 +32,26 @@ class Script extends Model
             return $query->where('pengarang', $pengarang);
         });
 
-        $query->when($filters['lokasi_ditemukan'] ?? false, function ($query, $lokasi_ditemukan) {
-            return $query->where('lokasi_ditemukan', $lokasi_ditemukan);
+        $query->when(isset($filters['lokasi_ditemukan']), function ($query) use ($filters) {
+            return $filters['lokasi_ditemukan'] === 'null'
+                ? $query->whereNull('lokasi_ditemukan')
+                : $query->where('lokasi_ditemukan', $filters['lokasi_ditemukan']);
         });
 
-        $query->when($filters['tahun_ditemukan'] ?? false, function ($query, $tahun_ditemukan) {
-            return $query->where('tahun_ditemukan', $tahun_ditemukan);
+        $query->when(isset($filters['tahun_ditemukan']), function ($query) use ($filters) {
+            return $filters['tahun_ditemukan'] === 'null'
+                ? $query->whereNull('tahun_ditemukan')
+                : $query->where('tahun_ditemukan', $filters['tahun_ditemukan']);
         });
 
-        $query->when($filters['bahasa'] ?? false, function ($query, $bahasa) {
-            return $query->where('bahasa', $bahasa);
+        $query->when(isset($filters['bahasa']), function ($query) use ($filters) {
+            return $filters['bahasa'] === 'null'
+                ? $query->whereNull('bahasa')
+                : $query->where('bahasa', $filters['bahasa']);
         });
     }
+
+
 
     public function category()
     {

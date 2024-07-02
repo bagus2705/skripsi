@@ -51,19 +51,29 @@
                                 <label for="lokasi_ditemukan" class="form-label">Location Found</label>
                                 <div class="border p-3 rounded">
                                     @foreach ($lokasi_ditemukan as $lokasi)
-                                        <div class="form-check">
-                                            <input class="form-check-input" type="radio" name="lokasi_ditemukan"
-                                                value="{{ $lokasi->lokasi_ditemukan }}"
-                                                id="lokasi_ditemukan{{ $lokasi->id }}" onchange="this.form.submit()"
-                                                {{ $lokasi->lokasi_ditemukan == request('lokasi_ditemukan') ? 'checked' : '' }}>
-                                            <label class="form-check-label" for="lokasi_ditemukan{{ $lokasi->id }}">
-                                                {{ $lokasi->lokasi_ditemukan }}
-                                            </label>
-                                        </div>
+                                        @if ($lokasi->lokasi_ditemukan !== null)
+                                            <div class="form-check">
+                                                <input class="form-check-input" type="radio" name="lokasi_ditemukan"
+                                                    value="{{ $lokasi->lokasi_ditemukan }}"
+                                                    id="lokasi_ditemukan{{ $lokasi->id }}" onchange="this.form.submit()"
+                                                    {{ $lokasi->lokasi_ditemukan == request('lokasi_ditemukan') ? 'checked' : '' }}>
+                                                <label class="form-check-label" for="lokasi_ditemukan{{ $lokasi->id }}">
+                                                    {{ $lokasi->lokasi_ditemukan }}
+                                                </label>
+                                            </div>
+                                        @endif
                                     @endforeach
                                     <div class="form-check">
-                                        <input class="form-check-input" type="radio" name="lokasi_ditemukan" value=""
-                                            id="lokasi_ditemukan_all" onchange="this.form.submit()"
+                                        <input class="form-check-input" type="radio" name="lokasi_ditemukan"
+                                            value="null" id="lokasi_ditemukan_null" onchange="this.form.submit()"
+                                            {{ request('lokasi_ditemukan') === 'null' ? 'checked' : '' }}>
+                                        <label class="form-check-label" for="lokasi_ditemukan_null">
+                                            N/A
+                                        </label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="radio" name="lokasi_ditemukan"
+                                            value="" id="lokasi_ditemukan_all" onchange="this.form.submit()"
                                             {{ !request('lokasi_ditemukan') ? 'checked' : '' }}>
                                         <label class="form-check-label" for="lokasi_ditemukan_all">
                                             All Locations
@@ -75,19 +85,29 @@
                                 <label for="tahun_ditemukan" class="form-label">Year Found</label>
                                 <div class="border p-3 rounded">
                                     @foreach ($tahun_ditemukan as $tahun)
-                                        <div class="form-check">
-                                            <input class="form-check-input" type="radio" name="tahun_ditemukan"
-                                                value="{{ $tahun->tahun_ditemukan }}"
-                                                id="tahun_ditemukan{{ $tahun->id }}" onchange="this.form.submit()"
-                                                {{ $tahun->tahun_ditemukan == request('tahun_ditemukan') ? 'checked' : '' }}>
-                                            <label class="form-check-label" for="tahun_ditemukan{{ $tahun->id }}">
-                                                {{ $tahun->tahun_ditemukan }}
-                                            </label>
-                                        </div>
+                                        @if ($tahun->tahun_ditemukan !== null)
+                                            <div class="form-check">
+                                                <input class="form-check-input" type="radio" name="tahun_ditemukan"
+                                                    value="{{ $tahun->tahun_ditemukan }}"
+                                                    id="tahun_ditemukan{{ $tahun->id }}" onchange="this.form.submit()"
+                                                    {{ $tahun->tahun_ditemukan == request('tahun_ditemukan') ? 'checked' : '' }}>
+                                                <label class="form-check-label" for="tahun_ditemukan{{ $tahun->id }}">
+                                                    {{ $tahun->tahun_ditemukan }}
+                                                </label>
+                                            </div>
+                                        @endif
                                     @endforeach
                                     <div class="form-check">
-                                        <input class="form-check-input" type="radio" name="tahun_ditemukan" value=""
-                                            id="tahun_ditemukan_all" onchange="this.form.submit()"
+                                        <input class="form-check-input" type="radio" name="tahun_ditemukan" value="null"
+                                            id="tahun_ditemukan_null" onchange="this.form.submit()"
+                                            {{ request('tahun_ditemukan') === 'null' ? 'checked' : '' }}>
+                                        <label class="form-check-label" for="tahun_ditemukan_null">
+                                            N/A
+                                        </label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="radio" name="tahun_ditemukan"
+                                            value="" id="tahun_ditemukan_all" onchange="this.form.submit()"
                                             {{ !request('tahun_ditemukan') ? 'checked' : '' }}>
                                         <label class="form-check-label" for="tahun_ditemukan_all">
                                             All Years
@@ -99,16 +119,26 @@
                                 <label for="bahasa" class="form-label">Language</label>
                                 <div class="border p-3 rounded">
                                     @foreach ($bahasa as $language)
-                                        <div class="form-check">
-                                            <input class="form-check-input" type="radio" name="bahasa"
-                                                value="{{ $language->bahasa }}" id="bahasa{{ $language->id }}"
-                                                onchange="this.form.submit()"
-                                                {{ $language->bahasa == request('bahasa') ? 'checked' : '' }}>
-                                            <label class="form-check-label" for="bahasa{{ $language->id }}">
-                                                {{ $language->bahasa }}
-                                            </label>
-                                        </div>
+                                        @if ($language->bahasa !== null)
+                                            <div class="form-check">
+                                                <input class="form-check-input" type="radio" name="bahasa"
+                                                    value="{{ $language->bahasa }}" id="bahasa{{ $language->id }}"
+                                                    onchange="this.form.submit()"
+                                                    {{ $language->bahasa == request('bahasa') ? 'checked' : '' }}>
+                                                <label class="form-check-label" for="bahasa{{ $language->id }}">
+                                                    {{ $language->bahasa }}
+                                                </label>
+                                            </div>
+                                        @endif
                                     @endforeach
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="radio" name="bahasa" value="null"
+                                            id="bahasa_null" onchange="this.form.submit()"
+                                            {{ request('bahasa') === 'null' ? 'checked' : '' }}>
+                                        <label class="form-check-label" for="bahasa_null">
+                                            N/A
+                                        </label>
+                                    </div>
                                     <div class="form-check">
                                         <input class="form-check-input" type="radio" name="bahasa" value=""
                                             id="bahasa_all" onchange="this.form.submit()"
@@ -119,6 +149,10 @@
                                     </div>
                                 </div>
                             </div>
+
+                            <button type="reset" class="btn btn-secondary me-2" onclick="window.location.href='/scripts'">Reset</button>
+
+
                         </form>
                     </div>
                 </div>
@@ -132,9 +166,15 @@
                                 <div class="card h-100">
                                     <div class="card-body">
                                         <h5 class="card-title">{{ $script->title }}</h5>
-                                        <img src="{{ asset('storage/' . $script->image) }}"
-                                            alt="{{ $script->category->name }}" class="card-img-top img-fluid mb-3">
-                                        <h7>{{ $script->category->name}}</h7>
+                                        @if ($script->image)
+                                            <img src="{{ asset('storage/' . $script->image) }}"
+                                                alt="{{ $script->category->name }}" class="card-img-top img-fluid mb-3">
+                                        @else
+                                            <div class="text-center mb-3">
+                                                <span class="text-muted">No image available</span>
+                                            </div>
+                                        @endif
+                                        <h7>{{ $script->category->name }}</h7>
                                         <p class="card-text mt-3">{{ Str::limit(strip_tags($script->detail), 100) }}</p>
                                         <a href="/scripts/{{ $script->slug }}"
                                             class="btn btn-primary text-decoration-none">Read More</a>
