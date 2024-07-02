@@ -2,12 +2,10 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\{
-    PostController,
     LoginController,
     RegisterController,
     ScriptController,
-    AdminCategoryController,
-    DashboardPostController,
+    DashboardCategoryController,
     DashboardScriptController,
     OcrController
 };
@@ -21,9 +19,6 @@ Route::get('/', function () {
 });
 
 
-// Post routes
-Route::get('/posts', [PostController::class, 'index']);
-Route::get('/posts/{post:slug}', [PostController::class, 'show']);
 
 // Authentication routes
 Route::get('/login', [LoginController::class, 'index'])->name('login')->middleware('guest');
@@ -38,13 +33,11 @@ Route::get('/dashboard', function () {
     return view('dashboard.index');
 })->middleware('auth');
 
-// Dashboard post routes
-Route::get('/dashboard/posts/checkSlug', [DashboardPostController::class, 'checkSlug']);
-Route::resource('/dashboard/posts', DashboardPostController::class)->middleware('auth');
+
 
 // Admin category routes
-Route::get('/dashboard/categories/checkSlug', [AdminCategoryController::class, 'checkSlug']);
-Route::resource('/dashboard/categories', AdminCategoryController::class)->except('show')->middleware('admin');
+Route::get('/dashboard/categories/checkSlug', [DashboardCategoryController::class, 'checkSlug']);
+Route::resource('/dashboard/categories', DashboardCategoryController::class)->except('show')->middleware('admin');
 
 // Script routes
 Route::get('/scripts', [ScriptController::class, 'index']);

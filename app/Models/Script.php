@@ -11,7 +11,7 @@ class Script extends Model
     use Sluggable, HasFactory;
 
     protected $guarded = ['id'];
-    protected $with = ['kategori'];
+    protected $with = ['category'];
 
     public function scopeFilter($query, array $filters)
     {
@@ -22,9 +22,9 @@ class Script extends Model
                 ->orWhere('translasi', 'like', '%' . $search . '%');
         });
 
-        $query->when($filters['kategori'] ?? false, function ($query, $kategori) {
-            return $query->whereHas('kategori', function ($query) use ($kategori) {
-                $query->where('slug', $kategori);
+        $query->when($filters['category'] ?? false, function ($query, $category) {
+            return $query->whereHas('category', function ($query) use ($category) {
+                $query->where('slug', $category);
             });
         });
 
@@ -45,9 +45,9 @@ class Script extends Model
         });
     }
 
-    public function kategori()
+    public function category()
     {
-        return $this->belongsTo(Kategori::class);
+        return $this->belongsTo(Category::class, 'category_id');
     }
 
     public function getRouteKeyName()
@@ -64,3 +64,4 @@ class Script extends Model
         ];
     }
 }
+

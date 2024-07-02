@@ -23,10 +23,8 @@ class RegisterController extends Controller
         'email' => 'required|email:dns|unique:users',
         'password' => 'required|min:5|max:255'
        ]);
-       //$validatedData['password'] =bcrypt($validatedData['password']);
         $validatedData['password']=Hash::make($validatedData['password']);
        User::create($validatedData);
-      // session()->flash('success','Sukses Register Login');
        return redirect('/login')->with('success', 'Sukses Register Login');
     }
 }

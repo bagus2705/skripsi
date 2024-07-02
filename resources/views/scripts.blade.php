@@ -1,7 +1,7 @@
 @extends('layout.main')
 
 @section('container')
-    <div class="container">
+    <div class="container mt-2">
         <h1 class="mb-3 text-center">{{ $title }}</h1>
 
         <div class="row">
@@ -24,24 +24,24 @@
                         <h5 class="card-title">Filter</h5>
                         <form action="/scripts" method="GET">
                             <div class="mb-3">
-                                <label for="kategori" class="form-label">Category</label>
+                                <label for="category" class="form-label">Category</label>
                                 <div class="border p-3 rounded">
-                                    @foreach ($kategoris as $kategori)
+                                    @foreach ($categories as $category)
                                         <div class="form-check">
-                                            <input class="form-check-input" type="radio" name="kategori"
-                                                value="{{ $kategori->slug }}" id="kategori{{ $kategori->id }}"
+                                            <input class="form-check-input" type="radio" name="category"
+                                                value="{{ $category->slug }}" id="category{{ $category->id }}"
                                                 onchange="this.form.submit()"
-                                                {{ $kategori->slug == request('kategori') ? 'checked' : '' }}>
-                                            <label class="form-check-label" for="kategori{{ $kategori->id }}">
-                                                {{ $kategori->name }}
+                                                {{ $category->slug == request('category') ? 'checked' : '' }}>
+                                            <label class="form-check-label" for="category{{ $category->id }}">
+                                                {{ $category->name }}
                                             </label>
                                         </div>
                                     @endforeach
                                     <div class="form-check">
-                                        <input class="form-check-input" type="radio" name="kategori" value=""
-                                            id="kategori_all" onchange="this.form.submit()"
-                                            {{ !request('kategori') ? 'checked' : '' }}>
-                                        <label class="form-check-label" for="kategori_all">
+                                        <input class="form-check-input" type="radio" name="category" value=""
+                                            id="category_all" onchange="this.form.submit()"
+                                            {{ !request('category') ? 'checked' : '' }}>
+                                        <label class="form-check-label" for="category_all">
                                             All Categories
                                         </label>
                                     </div>
@@ -133,8 +133,8 @@
                                     <div class="card-body">
                                         <h5 class="card-title">{{ $script->title }}</h5>
                                         <img src="{{ asset('storage/' . $script->image) }}"
-                                            alt="{{ $script->kategori->name }}" class="card-img-top img-fluid mb-3">
-                                        <h7>{{ $script->kategori->name }}</h7>
+                                            alt="{{ $script->category->name }}" class="card-img-top img-fluid mb-3">
+                                        <h7>{{ $script->category->name}}</h7>
                                         <p class="card-text mt-3">{{ Str::limit(strip_tags($script->detail), 100) }}</p>
                                         <a href="/scripts/{{ $script->slug }}"
                                             class="btn btn-primary text-decoration-none">Read More</a>

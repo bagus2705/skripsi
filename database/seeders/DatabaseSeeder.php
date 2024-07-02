@@ -6,8 +6,6 @@ namespace Database\Seeders;
 use Illuminate\Database\Seeder;
 use App\Models\User;
 use App\Models\Category;
-use App\Models\Post;
-use App\Models\Kategori;
 use App\Models\Script;
 
 class DatabaseSeeder extends Seeder
@@ -25,29 +23,16 @@ class DatabaseSeeder extends Seeder
             'is_admin' => true
         ]);
         User::factory(3)->create();
+       
         Category::create([
-            'name' => 'Web Programming',
-            'slug' => 'web-programming'
-        ]);
-        Category::create([
-            'name' => 'Web Design',
-            'slug' => 'web-design'
-        ]);
-        Category::create([
-            'name' => 'Personal',
-            'slug' => 'personal'
-        ]);
-        
-        Post::factory(20)->create();
-        Kategori::create([
             'name' => 'Budaya',
             'slug' => 'budaya'
         ]);
-        Kategori::create([
+        Category::create([
             'name' => 'Religi',
             'slug' => 'religi'
         ]);
-        Kategori::create([
+        Category::create([
             'name' => 'Mathematical',
             'slug' => 'mathematical'
         ]);

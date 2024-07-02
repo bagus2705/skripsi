@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('scripts', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('kategori_id')->onDelete('cascade');
+            $table->foreignId('category_id')->onDelete('cascade');
             $table->string('title');
             $table->string('pengarang')->nullable();
             $table->string('lokasi_ditemukan')->nullable();

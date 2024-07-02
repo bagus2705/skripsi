@@ -12,14 +12,16 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
 
     <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/landing.css">
+
     
 
     <title> Halaman {{ $title }}</title>
 </head>
 
 <body>
-    @include('partials.navbar');
-    <div class="container mt-4">
+    @include('partials.navbar')
+    <div class="container">
         @yield('container')
     </div>
 

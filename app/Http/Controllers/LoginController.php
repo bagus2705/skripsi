@@ -19,13 +19,15 @@ class LoginController extends Controller
     {
         $credentials = $request->validate([
             'email' => 'required|email',
-            'password' => 'required|min:5|max:255'
+            'password' => 'required|min:5|max:255',
         ]);
-        if(Auth::attempt($credentials)){
+
+        if (Auth::attempt($credentials)) {
             $request->session()->regenerate();
             return redirect()->intended('/dashboard');
         }
-        return back()->with('loginError','Login Failed');
+
+        return back()->with('loginError', 'Invalid email or password.');
     }
     public function logout(Request $request){
         Auth::logout();

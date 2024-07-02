@@ -11,10 +11,6 @@
                     <li class="nav-item">
                         <a class="nav-link {{ $active === 'home' ? 'active' : '' }}" href="/">Home</a>
                     </li>
-
-                    <li class="nav-item">
-                        <a class="nav-link {{ $active === 'posts' ? 'active' : '' }}" href="/posts">Posts</a>
-                    </li>
                     <li class="nav-item">
                         <a class="nav-link {{ $active === 'scripts' ? 'active' : '' }}" href="/scripts">Scripts</a>
                     </li>
@@ -28,7 +24,7 @@
                             </a>
                             <ul class="dropdown-menu dropdown-menu-end">
                                 <li><a class="dropdown-item" href="/dashboard"><i
-                                            class="bi bi-layout-text-window me-2"></i>My Dashboard</a></li>
+                                            class="bi bi-layout-text-window me-2"></i> My Dashboard</a></li>
                                 <li>
                                     <hr class="dropdown-divider">
                                 </li>
@@ -36,7 +32,7 @@
                                     <form action="/logout" method="post">
                                         @csrf
                                         <button type="submit" class="dropdown-item"><i
-                                                class="bi bi-box-arrow-left me-2"></i>Logout</button>
+                                                class="bi bi-box-arrow-left me-2"></i> Logout</button>
                                     </form>
                                 </li>
                             </ul>
@@ -44,7 +40,7 @@
                     @else
                         <li class="nav-item">
                             <a href="/login" class="nav-link {{ $active === 'login' ? 'active' : '' }}"><i
-                                    class="bi bi-box-arrow-in-right me-2"></i>Login</a>
+                                    class="bi bi-box-arrow-in-right me-2"></i> Login</a>
                         </li>
                     @endauth
                 </ul>

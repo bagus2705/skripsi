@@ -4,21 +4,14 @@
                         <li class="nav-item">
                             <a class="nav-link {{ Request::is('dashboard') ? 'active' : '' }}" aria-current="page"
                                 href="/dashboard">
-                                <span data-feather="home" class="align-text-bottom"></span>
+                                <span class="align-text-bottom"></span>
                                 Dashboard
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link {{ Request::is('dashboard/posts*') ? 'active' : '' }}"
-                                href="/dashboard/posts">
-                                <span data-feather="file=text" class="align-text-bottom"></span>
-                                My Post
                             </a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link"
                                 href="/">
-                                <span data-feather="file=text" class="align-text-bottom"></span>
+                                <span  class="align-text-bottom"></span>
                                 Home
                             </a>
                         </li>
@@ -31,7 +24,7 @@
                         <ul class="nav flex-column">
                             <li class="nav-item">
                                 <a class="nav-link {{ Request::is('dashboard/categories*') ? 'active' : '' }}" aria-current="page" href="/dashboard/categories">
-                                    <span data-feather="grid" class="align-text-bottom"></span>
+                                    <span class="align-text-bottom"></span>
                                     Categories
                                 </a>
                             </li>
@@ -39,7 +32,7 @@
                         <ul class="nav flex-column">
                             <li class="nav-item">
                                 <a class="nav-link {{ Request::is('dashboard/scripts*') ? 'active' : '' }}" aria-current="page" href="/dashboard/scripts">
-                                    <span data-feather="grid" class="align-text-bottom"></span>
+                                    <span  class="align-text-bottom"></span>
                                     Scripts
                                 </a>
                             </li>

@@ -2,12 +2,12 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Kategori;
+use App\Models\Category;
 use Illuminate\Http\Request;
 use Cviebrock\EloquentSluggable\Services\SlugService;
 use Illuminate\Validation\Rules\Can;
 
-class AdminCategoryController extends Controller
+class DashboardCategoryController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,7 +15,7 @@ class AdminCategoryController extends Controller
     public function index()
     {
         return view('dashboard.categories.index',[
-            'categories'=>Kategori::all()
+            'categories'=>Category::all()
         ]);
     }
 
@@ -36,14 +36,14 @@ class AdminCategoryController extends Controller
             'name' => 'required|max:255',
             'slug' => 'required|unique:categories',
         ]);
-        Kategori::create($validatedData);
+        Category::create($validatedData);
         return redirect('/dashboard/categories')->with('success', 'Category Added');
     }
 
     /**
      * Display the specified resource.
      */
-    public function show(kategori $category)
+    public function show(Category $category)
     {
         //
     }
@@ -51,7 +51,7 @@ class AdminCategoryController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(kategori $category)
+    public function edit(Category $category)
     {
         return view('dashboard.categories.edit', [
             'category' => $category
@@ -61,34 +61,34 @@ class AdminCategoryController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, kategori $category)
+    public function update(Request $request, Category $category)
     {
         $rules = [
             'name' => 'required|max:255'
         ];
         if ($request->slug != $category->slug) {
-            $rules['slug'] = 'required|unique:posts';
+            $rules['slug'] = 'required|unique:categories';
         }
         $validatedData = $request->validate($rules);
 
-        kategori::where('id', $category->id)->update($validatedData);
+        Category::where('id', $category->id)->update($validatedData);
         return redirect('/dashboard/categories')->with('success', 'Category Updated');
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(kategori $category)
+    public function destroy(Category $category)
     {
 
-        Kategori::destroy($category->id);
+        Category::destroy($category->id);
         return redirect('/dashboard/categories')->with('success', 'Category Deleted');
     }
 
     
     public function checkSlug(Request $request)
     {
-        $slug = SlugService::createSlug(Kategori::class, 'slug', $request->title);
+        $slug = SlugService::createSlug(Category::class, 'slug', $request->title);
         return response()->json(['slug' => $slug]);
     }
 }

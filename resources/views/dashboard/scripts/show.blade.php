@@ -37,14 +37,14 @@
                     </div>
                     <div class="col-md-4">
                         <div class="author-category-box p-3 border rounded">
-                            <p><strong>Author:</strong> <a class="text-decoration-none">{{ $script->pengarang }}</a></p>
-                            <p><strong>Category:</strong> <a class="text-decoration-none">{{ $script->kategori->name }}</a>
+                            <p><strong>Author:</strong> <a class="text-decoration-none text-dark">{{ $script->pengarang }}</a></p>
+                            <p><strong>Category:</strong> <a class="text-decoration-none text-dark">{{ $script->category->name }}</a>
                             </p>
                             <p><strong>Lokasi Ditemukan:</strong> <a
-                                    class="text-decoration-none">{{ $script->lokasi_ditemukan }}</a></p>
+                                    class="text-decoration-none text-dark">{{ $script->lokasi_ditemukan }}</a></p>
                             <p><strong>Tahun Ditemukan:</strong> <a
-                                    class="text-decoration-none">{{ $script->tahun_ditemukan }}</a></p>
-                            <p><strong>Bahasa:</strong> <a class="text-decoration-none">{{ $script->bahasa }}</a></p>
+                                    class="text-decoration-none text-dark">{{ $script->tahun_ditemukan }}</a></p>
+                            <p><strong>Bahasa:</strong> <a class="text-decoration-none text-dark">{{ $script->bahasa }}</a></p>
                         </div>
                     </div>
                 </div>

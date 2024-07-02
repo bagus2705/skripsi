@@ -4,7 +4,7 @@
     <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
         <h1 class="h2">Edit Script</h1>
     </div>
-    <div class="col-lg 8">
+    <div class="col-lg-8">
         <form method="post" action="/dashboard/scripts/{{ $script->slug }}" class="mb-5" enctype="multipart/form-data">
             @method('put')
             @csrf
@@ -29,21 +29,26 @@
                 @enderror
             </div>
             <div class="mb-3">
-                <label for="kategori_id" class="form-label">Category</label>
-                <select class="form-select" name="kategori_id">
-                    @foreach ($kategoris as $kategori)
-                        @if (old('kategori_id', $script->kategori_id) == $kategori->id)
-                            <option value="{{ $kategori->id }}"selected>{{ $kategori->name }}</option>
+                <label for="category_id" class="form-label">Category</label>
+                <select class="form-select @error('category_id') is-invalid @enderror" name="category_id">
+                    @foreach ($categories as $category)
+                        @if (old('category_id', $script->category_id) == $category->id)
+                            <option value="{{ $category->id }}" selected>{{ $category->name }}</option>
                         @else
-                            <option value="{{ $kategori->id }}">{{ $kategori->name }}</option>
+                            <option value="{{ $category->id }}">{{ $category->name }}</option>
                         @endif
                     @endforeach
                 </select>
+                @error('category_id')
+                    <div class="invalid-feedback">
+                        {{ $message }}
+                    </div>
+                @enderror
             </div>
             <div class="mb-3">
                 <label for="pengarang" class="form-label">Pengarang</label>
                 <input type="text" class="form-control @error('pengarang') is-invalid @enderror" id="pengarang"
-                    name="pengarang"value="{{ old('pengarang', $script->pengarang) }}">
+                    name="pengarang" value="{{ old('pengarang', $script->pengarang) }}">
                 @error('pengarang')
                     <div class="invalid-feedback">
                         {{ $message }}
@@ -85,11 +90,11 @@
 
             <div class="mb-3">
                 <label for="detail" class="form-label">Detail</label>
+                <input id="detail" type="hidden" name="detail" value="{{ old('detail', $script->detail) }}">
+                <trix-editor input="detail"></trix-editor>
                 @error('detail')
                     <p class="text-danger">{{ $message }}</p>
                 @enderror
-                <input id="detail" type="hidden" name="detail"value="{{ old('detail', $script->detail) }}">
-                <trix-editor input="detail"></trix-editor>
             </div>
             <div class="mb-3">
                 <label for="image" class="form-label">Image</label>
@@ -107,24 +112,24 @@
                     </div>
                 @enderror
                 <button type="button" class="btn btn-secondary mt-2" onclick="performOCR()">Perform OCR</button>
-
             </div>
 
             <div class="mb-3">
                 <label for="transkrip" class="form-label">Transkrip</label>
+                <input id="transkrip" type="hidden" name="transkrip" value="{{ old('transkrip', $script->transkrip) }}">
+                <trix-editor input="transkrip"></trix-editor>
                 @error('transkrip')
                     <p class="text-danger">{{ $message }}</p>
                 @enderror
-                <input id="transkrip" type="hidden" name="transkrip"value="{{ old('transkrip', $script->transkrip) }}">
-                <trix-editor input="transkrip"></trix-editor>
             </div>
             <div class="mb-3">
                 <label for="translasi" class="form-label">Translasi</label>
+                <input id="translasi" type="hidden" name="translasi"
+                    value="{{ old('translasi', $script->translasi) }}">
+                <trix-editor input="translasi"></trix-editor>
                 @error('translasi')
                     <p class="text-danger">{{ $message }}</p>
                 @enderror
-                <input id="translasi" type="hidden" name="translasi"value="{{ old('translasi', $script->translasi) }}">
-                <trix-editor input="translasi"></trix-editor>
             </div>
             <button type="submit" class="btn btn-primary">Edit Script</button>
         </form>
@@ -184,7 +189,7 @@
                         transkripEditor.setSelectedRange([0, transkripEditor.getDocument().toString().length])
                         transkripEditor.deleteInDirection("backward")
                         transkripEditor.insertString(data.text)
-                        
+
                         document.querySelector('#transkrip').value = data.text;
                         alert('OCR completed successfully.');
                     } else {

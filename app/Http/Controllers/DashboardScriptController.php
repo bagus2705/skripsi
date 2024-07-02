@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Script;
-use App\Models\Kategori;
+use App\Models\Category;
 use Cviebrock\EloquentSluggable\Services\SlugService;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
@@ -26,7 +26,7 @@ class DashboardScriptController extends Controller
     public function create()
     {
         return view('dashboard.scripts.create', [
-            'kategoris' => Kategori::all()
+            'categories' => Category::all()
         ]);
     }
 
@@ -38,15 +38,15 @@ class DashboardScriptController extends Controller
         $validatedData = $request->validate([
             'title' => 'required|max:255',
             'slug' => 'required|unique:scripts',
-            'image' => 'image|file|max:5000',
-            'kategori_id' => 'required',
-            'pengarang' => 'string|max:255',
-            'lokasi_ditemukan' => 'string',
+            'image' => 'image|file|max:5000|nullable',
+            'category_id' => 'required',
+            'pengarang' => 'string|max:255|nullable',
+            'lokasi_ditemukan' => 'string|max:255|nullable',
             'tahun_ditemukan' => 'nullable|integer|min:1|max:' . date('Y'), 
-            'bahasa' => 'max:20',
+            'bahasa' => 'nullable|string|max:64',
             'detail' => 'required',
-            'transkrip' => 'string',
-            'translasi' => 'string'   
+            'transkrip' => 'nullable|string',
+            'translasi' => 'nullable|string'   
         ]);
 
         if ($request->file('image')) {
@@ -76,7 +76,7 @@ class DashboardScriptController extends Controller
     {
         return view('dashboard.scripts.edit', [
             'script' => $script,
-            'kategoris' => Kategori::all()
+            'categories' => Category::all()
         ]);
     }
 
@@ -88,14 +88,14 @@ class DashboardScriptController extends Controller
         $rules = [
             'title' => 'required|max:255',
             'image' => 'image|file|max:5000',
-            'kategori_id' => 'required',
-            'pengarang' => 'string|max:255',
-            'lokasi_ditemukan' => 'string|max:255',
+            'category_id' => 'required',
+            'pengarang' => 'string|max:255|nullable',
+            'lokasi_ditemukan' => 'string|max:255|nullable',
             'tahun_ditemukan' => 'nullable|integer|min:1|max:' . date('Y'), 
-            'bahasa' => 'string|max:255',
+            'bahasa' => 'string|max:255|nullable',
             'detail' => 'required',
-            'transkrip' => 'string', 
-            'translasi' => 'string'   
+            'transkrip' => 'nullable|string', 
+            'translasi' => 'nullable|string'   
         ];
 
         if ($request->slug != $script->slug) {

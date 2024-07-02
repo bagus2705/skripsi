@@ -26,7 +26,7 @@ class ScriptFactory extends Factory
            'detail'=> fake()->paragraph(),
            'transkrip'=> collect($this->faker->paragraphs(mt_rand(2, 3)))
                 ->map(fn ($p) => "<p>$p</p>")->implode(''),
-           'kategori_id' => mt_rand(1, 3),
+            'category_id' => mt_rand(1, 3),
             'image' => 'script-images/sQ5N3IRahRQch6Iogu57N82CEgLZ0firUqIZzDwI.jpg',
              'translasi'=>fake()->paragraph()
                ];
