@@ -38,7 +38,7 @@ class DashboardScriptController extends Controller
         $validatedData = $request->validate([
             'title' => 'required|max:255',
             'slug' => 'required|unique:scripts',
-            'image' => 'image|file|max:5000|nullable',
+            'image' => 'image|file|max:1000|nullable',
             'category_id' => 'required',
             'pengarang' => 'string|max:255|nullable',
             'lokasi_ditemukan' => 'string|max:255|nullable',
@@ -87,7 +87,7 @@ class DashboardScriptController extends Controller
     {
         $rules = [
             'title' => 'required|max:255',
-            'image' => 'image|file|max:5000',
+            'image' => 'image|file|max:1000',
             'category_id' => 'required',
             'pengarang' => 'string|max:255|nullable',
             'lokasi_ditemukan' => 'string|max:255|nullable',

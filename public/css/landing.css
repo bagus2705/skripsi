@@ -3,13 +3,13 @@ header.masthead {
     padding-bottom: 6rem;
     text-align: center;
     color: #fff;
-    background-image: url('/assets/img-web/gaming.jpg');
+    background-image: url('/assets/img-web/books.jpeg');
     background-repeat: no-repeat;
     background-attachment: scroll;
     background-position: center center;
-    background-size: cover; /* Adjusted to cover entire header */
+    background-size: cover; 
     width: 100vw;
-    height: 100vh; /* Ensure header covers full viewport height */
+    height: 100vh; 
     position: relative;
     left: 50%;
     right: 50%;
