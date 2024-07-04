@@ -12,7 +12,7 @@
                         <a class="nav-link {{ $active === 'home' ? 'active' : '' }}" href="/">Home</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link {{ $active === 'scripts' ? 'active' : '' }}" href="/scripts">Scripts</a>
+                        <a class="nav-link {{ $active === 'scripts' ? 'active' : '' }}" href="/scripts">Naskah</a>
                     </li>
                 </ul>
                 <ul class="navbar-nav ms-auto mb-2 mb-lg-0 fs-5">
@@ -20,7 +20,7 @@
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
                                 aria-expanded="false">
-                                Welcome Back, {{ auth()->user()->name }}
+                                Welcome Back, {{ auth()->user()->username }}
                             </a>
                             <ul class="dropdown-menu dropdown-menu-end">
                                 <li><a class="dropdown-item" href="/dashboard"><i

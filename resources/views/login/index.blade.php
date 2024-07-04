@@ -17,7 +17,7 @@
             @endif
 
             <main class="form-signin w-100 m-auto p-4" style="background-color: #f8f9fa; border-radius: 8px; box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); max-width: 330px;">
-                <h1 class="h3 mb-3 fw-normal text-center">Please Login</h1>
+                <h1 class="h3 mb-3 fw-normal text-center">Login</h1>
                 <form action="/login" method="post">
                     @csrf
                     <div class="form-floating mb-3">

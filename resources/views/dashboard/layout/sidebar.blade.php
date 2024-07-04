@@ -33,7 +33,7 @@
                             <li class="nav-item">
                                 <a class="nav-link {{ Request::is('dashboard/scripts*') ? 'active' : '' }}" aria-current="page" href="/dashboard/scripts">
                                     <span  class="align-text-bottom"></span>
-                                    Scripts
+                                    Naskah
                                 </a>
                             </li>
                         </ul>

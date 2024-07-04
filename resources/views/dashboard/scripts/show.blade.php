@@ -5,7 +5,7 @@
         <div class="row justify-content-center mb-5">
             <div class="col-md-12">
                 <h1 class="mb-3">{{ $script->title }}</h1>
-                <a href="/dashboard/scripts" class="btn btn-success">Back to Scripts</a>
+                <a href="/dashboard/scripts" class="btn btn-success">Back to Naskah</a>
                 <a href="/dashboard/scripts/{{ $script->slug }}/edit" class="btn btn-warning">Edit</a>
                 <form action="/dashboard/scripts/{{ $script->slug }}" method="post" class="d-inline">
                     @method('delete')

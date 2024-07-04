@@ -2,7 +2,7 @@
 
 @section('container')
     <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
-        <h1 class="h2">Welcome Back, {{ auth()->user()->name }}</h1>
+        <h1 class="h2">Selamat Datang, {{ auth()->user()->username }}</h1>
     </div>
 
     @if (session()->has('success'))
@@ -18,7 +18,7 @@
                     Your Profile
                 </div>
                 <div class="card-body">
-                    <h5 class="card-title">{{ auth()->user()->name }}</h5>
+                    <h5 class="card-title">{{ auth()->user()->username }}</h5>
                     <p class="card-text">Email: {{ auth()->user()->email }}</p>
                 </div>
             </div>
@@ -30,9 +30,9 @@
                     Actions
                 </div>
                 <div class="card-body">
-                    <h5 class="card-title">Manage Scripts</h5>
-                    <p class="card-text">View and manage all scripts here.</p>
-                    <a href="/dashboard/scripts" class="btn btn-primary">View Scripts</a>
+                    <h5 class="card-title">Manage Naskah</h5>
+                    <p class="card-text">View and manage all naskah here.</p>
+                    <a href="/dashboard/scripts" class="btn btn-primary">View Naskah</a>
                 </div>
             </div>
         </div>

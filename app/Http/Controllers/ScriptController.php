@@ -27,7 +27,7 @@ class ScriptController extends Controller
         }
 
         return view('scripts', [
-            "title" => "All Scripts" . $title,
+            "title" => "All Naskah" . $title,
             "active" => 'scripts',
             "scripts" => $scripts,
             "categories" => $categories,

@@ -2,7 +2,7 @@
 
 @section('container')
     <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
-        <h1 class="h2">Create New Script</h1>
+        <h1 class="h2">Create New Naskah</h1>
     </div>
     <div class="col-lg-8">
         <form method="post" action="/dashboard/scripts" class="mb-5" enctype="multipart/form-data">
@@ -120,7 +120,7 @@
                     <p class="text-danger">{{ $message }}</p>
                 @enderror
             </div>
-            <button type="submit" class="btn btn-primary">Create Script</button>
+            <button type="submit" class="btn btn-primary">Create Naskah</button>
         </form>
     </div>
     <script>

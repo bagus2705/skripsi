@@ -15,7 +15,7 @@
         <table class="table table-striped table-sm">
             <thead>
                 <tr>
-                    <th scope="col">#</th>
+                    <th scope="col">ID</th>
                     <th scope="col">Category Name</th>
                     <th scope="col">Action</th>
                 </tr>
@@ -25,7 +25,7 @@
                     <tr>
                         <td>{{ $loop->iteration }}</td>
                         <td>{{ $category->name }}</td>
-                        <td><a href="/dashboard/categories/{{ $category->slug }}/edit" class="badge bg-warning"> Edit</a></td>
+                        <td><a href="/dashboard/categories/{{ $category->slug }}/edit" class="badge bg-warning border-0"> Edit</a></td>
                         <td>
                             <form action="/dashboard/categories/{{ $category->slug }}" method="post"class="d-inline">
                                 @method('delete')
