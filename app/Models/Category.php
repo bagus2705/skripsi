@@ -9,8 +9,9 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 class Category extends Model
 {
     use Sluggable, HasFactory;
-
     protected $guarded = ['id'];
+    public $timestamps = false;
+
 
     public function scripts()
     {

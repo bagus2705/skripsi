@@ -1,5 +1,3 @@
-<!doctype html>
-<html lang="en">
 
 <head>
     <meta charset="utf-8">
@@ -13,8 +11,10 @@
         integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
 
     <link href="/css/dashboard.css" rel="stylesheet">
+
     <link rel="stylesheet" type="text/css" href="https://unpkg.com/trix@2.0.8/dist/trix.css">
     <script type="text/javascript" src="https://unpkg.com/trix@2.0.8/dist/trix.umd.min.js"></script>
+
     <style>
         trix-toolbar [data-trix-button-group="file-tools"] {
             display: none;
@@ -42,4 +42,3 @@
     
 </body>
 
-</html>

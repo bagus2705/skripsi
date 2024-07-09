@@ -24,7 +24,6 @@ return new class extends Migration
             $table->text('detail');
             $table->text('transkrip')->nullable();
             $table->text('translasi')->nullable();
-            $table->timestamps();
         });
     }
 

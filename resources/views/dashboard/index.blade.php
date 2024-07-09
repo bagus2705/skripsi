@@ -24,30 +24,30 @@
             </div>
         </div>
         @can('admin')
-        <div class="col-md-6">
-            <div class="card">
-                <div class="card-header">
-                    Actions
-                </div>
-                <div class="card-body">
-                    <h5 class="card-title">Manage Naskah</h5>
-                    <p class="card-text">View and manage all naskah here.</p>
-                    <a href="/dashboard/scripts" class="btn btn-primary">View Naskah</a>
-                </div>
-            </div>
-        </div>
-        <div class="col-md-6">
-            <div class="card">
-                <div class="card-header">
-                    Actions
-                </div>
-                <div class="card-body">
-                    <h5 class="card-title">Manage Categories</h5>
-                    <p class="card-text">View and manage all categories here.</p>
-                    <a href="/dashboard/categories" class="btn btn-primary">View Categories</a>
+            <div class="col-md-6">
+                <div class="card">
+                    <div class="card-header">
+                        Actions
+                    </div>
+                    <div class="card-body">
+                        <h5 class="card-title">Manage Naskah</h5>
+                        <p class="card-text">View and manage all naskah here.</p>
+                        <a href="/dashboard/scripts" class="btn btn-primary">View Naskah</a>
+                    </div>
                 </div>
             </div>
-        </div>
+            <div class="col-md-6 mt-3">
+                <div class="card">
+                    <div class="card-header">
+                        Actions
+                    </div>
+                    <div class="card-body">
+                        <h5 class="card-title">Manage Categories</h5>
+                        <p class="card-text">View and manage all categories here.</p>
+                        <a href="/dashboard/categories" class="btn btn-primary">View Categories</a>
+                    </div>
+                </div>
+            </div>
         @endcan
     </div>
 @endsection

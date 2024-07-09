@@ -11,8 +11,8 @@ class ScriptController extends Controller
     public function index()
     {
         $title = '';
-        $categories = Category::all()->sortBy('name');
-        $scripts = Script::latest()
+        $categories = Category::orderBy('name', 'asc')->get();
+        $scripts = Script::orderBy('title')
             ->filter(request(['search', 'category', 'pengarang', 'lokasi_ditemukan', 'tahun_ditemukan', 'bahasa']))
             ->paginate(15)
             ->withQueryString();
@@ -28,7 +28,6 @@ class ScriptController extends Controller
 
         return view('scripts', [
             "title" => "All Naskah" . $title,
-            "active" => 'scripts',
             "scripts" => $scripts,
             "categories" => $categories,
             "lokasi_ditemukan" => $lokasi_ditemukan,
@@ -41,7 +40,6 @@ class ScriptController extends Controller
     {
         return view('script', [
             "title" => "Single Script",
-            "active" => 'script',
             "script" => $script
         ]);
     }

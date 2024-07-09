@@ -165,7 +165,7 @@
                             <div class="col">
                                 <div class="card h-100">
                                     <div class="card-body">
-                                        <h5 class="card-title">{{ $script->title }}</h5>
+                                        <h5 class="card-title text-center ">{{ $script->title }}</h5>
                                         @if ($script->image)
                                             <img src="{{ asset('storage/' . $script->image) }}"
                                                 alt="{{ $script->category->name }}" class="card-img-top img-fluid mb-3">

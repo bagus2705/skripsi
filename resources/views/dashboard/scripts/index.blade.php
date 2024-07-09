@@ -24,7 +24,7 @@
             <tbody>
                 @foreach ($scripts as $script)
                     <tr>
-                        <td>{{ $loop->iteration }}</td>
+                        <td>{{ $script->id }}</td>
                         <td>{{ $script->title }}</td>
                         <td>{{ $script->category->name }}</td>
                         <td><a href="/dashboard/scripts/{{ $script->slug }}" class="badge bg-info"> Show</a></td>

@@ -9,10 +9,10 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0 fs-5 mx-auto">
                     <li class="nav-item">
-                        <a class="nav-link {{ $active === 'home' ? 'active' : '' }}" href="/">Home</a>
+<a class="nav-link {{ Request::is('/') ? 'active' : '' }}" aria-current="page" href="/">Home</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link {{ $active === 'scripts' ? 'active' : '' }}" href="/scripts">Naskah</a>
+<a class="nav-link {{ Request::is('scripts') ? 'active' : '' }}" aria-current="page" href="/scripts">Naskah</a>
                     </li>
                 </ul>
                 <ul class="navbar-nav ms-auto mb-2 mb-lg-0 fs-5">
@@ -39,8 +39,8 @@
                         </li>
                     @else
                         <li class="nav-item">
-                            <a href="/login" class="nav-link {{ $active === 'login' ? 'active' : '' }}"><i
-                                    class="bi bi-box-arrow-in-right me-2"></i> Login</a>
+                         <a href="/login" class="nav-link {{ Request::is('login') ? 'active' : '' }}"><i class="bi bi-box-arrow-in-right me-2"></i> Login</a>
+
                         </li>
                     @endauth
                 </ul>

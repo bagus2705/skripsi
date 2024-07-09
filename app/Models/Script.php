@@ -9,10 +9,9 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 class Script extends Model
 {
     use Sluggable, HasFactory;
-
+    public $timestamps = false;
     protected $guarded = ['id'];
     protected $with = ['category'];
-
     public function scopeFilter($query, array $filters)
     {
         $query->when($filters['search'] ?? false, function ($query, $search) {
@@ -50,7 +49,6 @@ class Script extends Model
                 : $query->where('bahasa', $filters['bahasa']);
         });
     }
-
 
 
     public function category()

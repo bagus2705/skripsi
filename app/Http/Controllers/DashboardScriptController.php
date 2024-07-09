@@ -16,7 +16,7 @@ class DashboardScriptController extends Controller
     public function index()
     {
         return view('dashboard.scripts.index', [
-            'scripts' => Script::all()
+            'scripts' => Script::all(),
         ]);
     }
 

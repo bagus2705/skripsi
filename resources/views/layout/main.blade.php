@@ -1,5 +1,3 @@
-<!doctype html>
-<html lang="ar" dir="ltr">
 
 <head>
     <!-- Required meta tags -->
@@ -32,4 +30,3 @@
 
 </body>
 
-</html>

@@ -7,17 +7,16 @@ use App\Http\Controllers\{
     ScriptController,
     DashboardCategoryController,
     DashboardScriptController,
-    OcrController
+    OcrController,
+    ProfileController
 };
 
-// Home and About routes
+// Home routes
 Route::get('/', function () {
     return view('home', [
         "title" => "Home",
-        "active" => 'home',
     ]);
 });
-
 
 
 // Authentication routes
@@ -33,6 +32,9 @@ Route::get('/dashboard', function () {
     return view('dashboard.index');
 })->middleware('auth');
 
+
+//Route::get('/dashboard/profile/edit', [ProfileController::class, 'edit'])->middleware('auth')->name('profile.edit');
+//Route::put('/dashboard/profile/edit', [ProfileController::class, 'update'])->middleware('auth')->name('profile.update');
 
 
 // Admin category routes
