@@ -3,19 +3,17 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\User;
-use App\Models\Script; 
-use App\Models\Bookmark; 
+use App\Models\Script;
 use Illuminate\Support\Facades\Auth;
 
 class BookmarkController extends Controller
 {
-   public function index()
-{
-    $user = Auth::user();
-    $bookmarks = $user->bookmarks()->with('category')->get();
-    return view('dashboard.bookmarks.index', compact('bookmarks'));
-}
+    public function index()
+    {
+        $user = Auth::user();
+        $bookmarks = $user->bookmarks()->with('category')->get();
+        return view('dashboard.bookmarks.index', compact('bookmarks'));
+    }
 
 
     public function store(Script $script)
@@ -34,5 +32,3 @@ class BookmarkController extends Controller
         return back()->with('success', 'Bookmark removed successfully.');
     }
 }
-
-

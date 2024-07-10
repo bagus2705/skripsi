@@ -27,7 +27,7 @@ class ScriptFactory extends Factory
                 ->map(fn ($p) => "<p>$p</p>")->implode(''),
             'transkrip' => fake()->paragraph(),
             'category_id' => mt_rand(1, 3),
-            'image' => 'script-images/sQ5N3IRahRQch6Iogu57N82CEgLZ0firUqIZzDwI.jpg',
+            'image' => 'script-images/HhD7FTXWqQrFHhblrRfSmTEJgGKGJM8wKK9I0wU5.jpg',
             'translasi' => fake()->paragraph()
         ];
     }

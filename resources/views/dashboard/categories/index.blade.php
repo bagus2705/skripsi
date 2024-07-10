@@ -23,7 +23,7 @@
             <tbody>
                 @foreach ($categories as $category)
                     <tr>
-                        <td>{{ $script->id }}</td>
+                        <td>{{ $category->id }}</td>
                         <td>{{ $category->name }}</td>
                         <td><a href="/dashboard/categories/{{ $category->slug }}/edit" class="badge bg-warning border-0"> Edit</a></td>
                         <td>

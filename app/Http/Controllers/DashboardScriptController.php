@@ -113,7 +113,7 @@ class DashboardScriptController extends Controller
 
         Script::where('id', $script->id)->update($validatedData);
 
-        return redirect('/dashboard/scripts')->with('success', 'Script Updated');
+        return redirect('/dashboard/scripts')->with('success', 'Naskah Updated');
     }
 
 
@@ -128,7 +128,7 @@ class DashboardScriptController extends Controller
 
         Script::destroy($script->id);
 
-        return redirect('/dashboard/scripts')->with('success', 'Script Deleted');
+        return redirect('/dashboard/scripts')->with('success', 'Naskah Deleted');
     }
 
     public function checkSlug(Request $request)

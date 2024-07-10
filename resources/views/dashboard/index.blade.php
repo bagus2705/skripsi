@@ -2,7 +2,7 @@
 
 @section('container')
     <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
-        <h1 class="h2">Selamat Datang, {{ auth()->user()->username }}</h1>
+        <h1 class="h2">Selamat Datang</h1>
     </div>
 
     @if (session()->has('success'))
@@ -15,11 +15,10 @@
         <div class="col-md-6">
             <div class="card">
                 <div class="card-header">
-                    Your Profile
+                    Your Role
                 </div>
                 <div class="card-body">
-                    <h5 class="card-title">{{ auth()->user()->username }}</h5>
-                    <p class="card-text">Email: {{ auth()->user()->email }}</p>
+                    <h6 class="card-text">{{ auth()->user()->role }}</p>
                 </div>
             </div>
         </div>

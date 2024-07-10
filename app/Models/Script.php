@@ -74,6 +74,6 @@ class Script extends Model
 
     public function bookmarks()
     {
-        return $this->hasMany(Bookmark::class);
+        return $this->BelongsToMany(User::class, 'bookmarks');
     }
 }

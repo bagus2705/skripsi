@@ -40,7 +40,7 @@ Route::get('/dashboard', function () {
 
 // Admin category routes
 Route::get('/dashboard/categories/checkSlug', [DashboardCategoryController::class, 'checkSlug']);
-Route::resource('/dashboard/categories', DashboardCategoryController::class)->except('show')->middleware('admin');
+Route::resource('/dashboard/categories', DashboardCategoryController::class)->middleware('admin');
 
 // Script routes
 Route::get('/scripts', [ScriptController::class, 'index']);
@@ -48,7 +48,10 @@ Route::get('/scripts/{script:slug}', [ScriptController::class, 'show']);
 
 // Dashboard script routes
 Route::get('/dashboard/scripts/checkSlug', [DashboardScriptController::class, 'checkSlug']);
-Route::resource('/dashboard/scripts', DashboardScriptController::class)->middleware('auth');
+
+Route::group(['middleware' => ['filologis','admin']], function () {
+    Route::resource('/dashboard/scripts', DashboardScriptController::class);
+});
 
 // OCR routes
 Route::post('/dashboard/scripts/performOCR', [OcrController::class, 'performOCR']);

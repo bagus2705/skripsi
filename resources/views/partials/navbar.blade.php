@@ -9,10 +9,12 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0 fs-5 mx-auto">
                     <li class="nav-item">
-<a class="nav-link {{ Request::is('/') ? 'active' : '' }}" aria-current="page" href="/">Home</a>
+                        <a class="nav-link {{ Request::is('/') ? 'active' : '' }}" aria-current="page"
+                            href="/">Home</a>
                     </li>
                     <li class="nav-item">
-<a class="nav-link {{ Request::is('scripts') ? 'active' : '' }}" aria-current="page" href="/scripts">Naskah</a>
+                        <a class="nav-link {{ Request::is('scripts') ? 'active' : '' }}" aria-current="page"
+                            href="/scripts">Naskah</a>
                     </li>
                 </ul>
                 <ul class="navbar-nav ms-auto mb-2 mb-lg-0 fs-5">
@@ -20,11 +22,11 @@
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
                                 aria-expanded="false">
-                                Welcome Back, {{ auth()->user()->username }}
+                                Welcome Back,User
                             </a>
                             <ul class="dropdown-menu dropdown-menu-end">
-                                <li><a class="dropdown-item" href="/dashboard"><i
-                                            class="bi bi-layout-text-window me-2"></i> My Dashboard</a></li>
+                                <li><a class="dropdown-item" href="/dashboard"><i class="bi bi-layout-text-window me-2"></i>
+                                        My Dashboard</a></li>
                                 <li>
                                     <hr class="dropdown-divider">
                                 </li>
@@ -39,7 +41,8 @@
                         </li>
                     @else
                         <li class="nav-item">
-                         <a href="/login" class="nav-link {{ Request::is('login') ? 'active' : '' }}"><i class="bi bi-box-arrow-in-right me-2"></i> Login</a>
+                            <a href="/login" class="nav-link {{ Request::is('login') ? 'active' : '' }}"><i
+                                    class="bi bi-box-arrow-in-right me-2"></i> Login</a>
 
                         </li>
                     @endauth
