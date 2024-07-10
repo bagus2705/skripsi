@@ -70,10 +70,8 @@ class Script extends Model
             ]
         ];
     }
-    public function bookmarkedBy(): BelongsToMany
-    {
-        return $this->belongsToMany(User::class, 'bookmarks');
-    }
+    
+
     public function bookmarks()
     {
         return $this->hasMany(Bookmark::class);
