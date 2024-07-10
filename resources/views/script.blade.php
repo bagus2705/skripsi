@@ -3,9 +3,22 @@
 @section('container')
     <div class="container mt-2">
         <div class="row justify-content-center mb-5">
-            <div class="col-md-10"> 
+            <div class="col-md-10">
                 <h1 class="mb-4 text-center">{{ $script->title }}</h1>
-
+                @auth
+                    @if (Auth::user()->bookmarks->contains($script->id))
+                        <form action="{{ route('bookmarks.destroy', $script) }}" method="POST">
+                            @csrf
+                            @method('DELETE')
+                            <button type="submit">Remove Bookmark</button>
+                        </form>
+                    @else
+                        <form action="{{ route('bookmarks.store', $script) }}" method="POST">
+                            @csrf
+                            <button type="submit">Bookmark</button>
+                        </form>
+                    @endif
+                @endauth
                 <div class="row">
                     <div class="col-md-8">
                         <div style="max-height:350px;overflow:hidden">

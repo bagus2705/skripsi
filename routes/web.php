@@ -8,7 +8,8 @@ use App\Http\Controllers\{
     DashboardCategoryController,
     DashboardScriptController,
     OcrController,
-    ProfileController
+    ProfileController,
+    BookmarkController
 };
 
 // Home routes
@@ -51,5 +52,12 @@ Route::resource('/dashboard/scripts', DashboardScriptController::class)->middlew
 
 // OCR routes
 Route::post('/dashboard/scripts/performOCR', [OcrController::class, 'performOCR']);
+
+
+Route::middleware('auth')->group(function () {
+    Route::post('/scripts/{script}/bookmark', [BookmarkController::class, 'store'])->name('bookmarks.store');
+    Route::delete('/scripts/{script}/bookmark', [BookmarkController::class, 'destroy'])->name('bookmarks.destroy');
+    Route::get('/dashboard/bookmarks', [BookmarkController::class, 'index'])->name('bookmarks.index');
+});
 
 

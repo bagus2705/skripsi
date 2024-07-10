@@ -15,6 +15,13 @@
                                 Home
                             </a>
                         </li>
+                        <li class="nav-item">
+                            <a class="nav-link"
+                                href="/dashboard/bookmarks">
+                                <span  class="align-text-bottom"></span>
+                                Your Bookmarks
+                            </a>
+                        </li>
                     </ul>
                     @can('admin')
                         <h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3

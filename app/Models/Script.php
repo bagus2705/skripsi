@@ -5,6 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Model;
 use Cviebrock\EloquentSluggable\Sluggable;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 
 class Script extends Model
 {
@@ -69,5 +70,12 @@ class Script extends Model
             ]
         ];
     }
+    public function bookmarkedBy(): BelongsToMany
+    {
+        return $this->belongsToMany(User::class, 'bookmarks');
+    }
+    public function bookmarks()
+    {
+        return $this->hasMany(Bookmark::class);
+    }
 }
-

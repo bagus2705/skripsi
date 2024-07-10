@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Script;
 use App\Models\Category;
+use App\Models\User;
 
 class ScriptController extends Controller
 {
@@ -42,5 +43,9 @@ class ScriptController extends Controller
             "title" => "Single Script",
             "script" => $script
         ]);
+    }
+    public function bookmarks()
+    {
+        return $this->belongsToMany(User::class, 'bookmarks');
     }
 }
