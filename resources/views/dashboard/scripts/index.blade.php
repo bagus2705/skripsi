@@ -11,7 +11,9 @@
         </div>
     @endif
     <div class="table-responsive col-lg-8">
+        @can('admin')
         <a href="/dashboard/scripts/create" class="btn btn-primary mb-3">Create new Naskah</a>
+        @endcan
         <table class="table table-striped table-sm">
             <thead>
                 <tr>
@@ -29,7 +31,9 @@
                         <td>{{ $script->category->name }}</td>
                         <td><a href="/dashboard/scripts/{{ $script->slug }}" class="badge bg-info"> Show</a></td>
                         <td><a href="/dashboard/scripts/{{ $script->slug }}/edit" class="badge bg-warning"> Edit</a></td>
+                         @can('admin')
                         <td>
+                           
                             <form action="/dashboard/scripts/{{ $script->slug }}" method="post"class="d-inline">
                                 @method('delete')
                                 @csrf
@@ -37,6 +41,7 @@
                                 </button>
                             </form>
                         </td>
+                        @endcan
                     </tr>
                 @endforeach
             </tbody>

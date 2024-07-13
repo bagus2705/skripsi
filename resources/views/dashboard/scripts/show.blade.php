@@ -7,11 +7,13 @@
                 <h1 class="mb-3">{{ $script->title }}</h1>
                 <a href="/dashboard/scripts" class="btn btn-success">Back to Naskah</a>
                 <a href="/dashboard/scripts/{{ $script->slug }}/edit" class="btn btn-warning">Edit</a>
+                @can('admin')
                 <form action="/dashboard/scripts/{{ $script->slug }}" method="post" class="d-inline">
                     @method('delete')
                     @csrf
                     <button class="btn btn-danger border-0" onclick="return confirm('Are You Sure?')"> Delete</button>
                 </form>
+                @endcan
             </div>
         </div>
 

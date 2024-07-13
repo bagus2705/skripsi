@@ -3,22 +3,21 @@
 @section('container')
     <div class="container mt-2">
         <h1 class="mb-3 text-center">{{ $title }}</h1>
+        <div class="card mb-4 shadow-sm">
+            <div class="card-body">
+                <h5 class="card-title">Search</h5>
+                <form action="/scripts" method="GET">
+                    <div class="mb-3">
+                        <input type="text" class="form-control" id="search" name="search"
+                            value="{{ request('search') }}" placeholder="Search...">
+                    </div>
+                    <button type="submit" class="btn btn-primary w-100">Search</button>
+                </form>
+            </div>
+        </div>
 
         <div class="row">
             <div class="col-md-3">
-                <div class="card mb-4 shadow-sm">
-                    <div class="card-body">
-                        <h5 class="card-title">Search</h5>
-                        <form action="/scripts" method="GET">
-                            <div class="mb-3">
-                                <input type="text" class="form-control" id="search" name="search"
-                                    value="{{ request('search') }}" placeholder="Search...">
-                            </div>
-                            <button type="submit" class="btn btn-primary w-100">Search</button>
-                        </form>
-                    </div>
-                </div>
-
                 <div class="card mb-4 shadow-sm">
                     <div class="card-body">
                         <h5 class="card-title">Filter</h5>
@@ -150,7 +149,8 @@
                                 </div>
                             </div>
 
-                            <button type="reset" class="btn btn-secondary me-2" onclick="window.location.href='/scripts'">Reset</button>
+                            <button type="reset" class="btn btn-secondary me-2"
+                                onclick="window.location.href='/scripts'">Reset</button>
 
 
                         </form>

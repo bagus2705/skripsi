@@ -7,6 +7,7 @@ use App\Models\Category;
 use Cviebrock\EloquentSluggable\Services\SlugService;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\Gate;
 
 class DashboardScriptController extends Controller
 {
@@ -55,7 +56,7 @@ class DashboardScriptController extends Controller
 
         Script::create($validatedData);
 
-        return redirect('/dashboard/scripts')->with('success', 'Script Added');
+        return redirect('/dashboard/scripts')->with('success', 'Naskah Added');
     }
 
 
@@ -78,6 +79,7 @@ class DashboardScriptController extends Controller
             'script' => $script,
             'categories' => Category::all()
         ]);
+        
     }
 
     /**
@@ -85,36 +87,50 @@ class DashboardScriptController extends Controller
      */
     public function update(Request $request, Script $script)
     {
-        $rules = [
-            'title' => 'required|max:255',
-            'image' => 'image|file|max:1000',
-            'category_id' => 'required',
-            'pengarang' => 'string|max:255|nullable',
-            'lokasi_ditemukan' => 'string|max:255|nullable',
-            'tahun_ditemukan' => 'nullable|integer|min:1|max:' . date('Y'), 
-            'bahasa' => 'string|max:255|nullable',
-            'detail' => 'required',
-            'transkrip' => 'nullable|string', 
-            'translasi' => 'nullable|string'   
-        ];
+        // Initialize the rules array
+        $rules = [];
 
-        if ($request->slug != $script->slug) {
-            $rules['slug'] = 'required|unique:scripts';
+        // Check if the user has 'admin' role
+        if (Gate::allows('admin')) {
+            $rules = [
+                'title' => 'required|max:255',
+                'slug' => 'required|unique:scripts,slug,' . $script->id,
+                'category_id' => 'required',
+                'pengarang' => 'nullable|max:255',
+                'lokasi_ditemukan' => 'nullable|max:255',
+                'tahun_ditemukan' => 'nullable|max:255',
+                'bahasa' => 'nullable|max:255',
+                'detail' => 'nullable',
+                'image' => 'image|file|max:1024',
+                'transkrip' => 'nullable',
+                'translasi' => 'nullable'
+            ];
+        }
+        // Check if the user has 'filologis' role
+        elseif (Gate::allows('filologis')) {
+            $rules = [
+                'transkrip' => 'nullable',
+                'translasi' => 'nullable'
+            ];
         }
 
+        // Validate the request with the appropriate rules
         $validatedData = $request->validate($rules);
 
+        // Handle the image upload if present
         if ($request->file('image')) {
             if ($script->image) {
                 Storage::delete($script->image);
             }
-            $validatedData['image'] = $request->file('image')->store('public/script-images');
+            $validatedData['image'] = $request->file('image')->store('script-images');
         }
 
-        Script::where('id', $script->id)->update($validatedData);
+        // Update the script with validated data
+        $script->update($validatedData);
 
-        return redirect('/dashboard/scripts')->with('success', 'Naskah Updated');
+        return redirect('/dashboard/scripts')->with('success', 'Naskah berhasil diubah!');
     }
+
 
 
     /**

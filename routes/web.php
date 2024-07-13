@@ -8,7 +8,7 @@ use App\Http\Controllers\{
     DashboardCategoryController,
     DashboardScriptController,
     OcrController,
-    ProfileController,
+    DashboardFilologisController,
     BookmarkController
 };
 
@@ -18,7 +18,6 @@ Route::get('/', function () {
         "title" => "Home",
     ]);
 });
-
 
 // Authentication routes
 Route::get('/login', [LoginController::class, 'index'])->name('login')->middleware('guest');
@@ -33,11 +32,6 @@ Route::get('/dashboard', function () {
     return view('dashboard.index');
 })->middleware('auth');
 
-
-//Route::get('/dashboard/profile/edit', [ProfileController::class, 'edit'])->middleware('auth')->name('profile.edit');
-//Route::put('/dashboard/profile/edit', [ProfileController::class, 'update'])->middleware('auth')->name('profile.update');
-
-
 // Admin category routes
 Route::get('/dashboard/categories/checkSlug', [DashboardCategoryController::class, 'checkSlug']);
 Route::resource('/dashboard/categories', DashboardCategoryController::class)->middleware('admin');
@@ -48,15 +42,14 @@ Route::get('/scripts/{script:slug}', [ScriptController::class, 'show']);
 
 // Dashboard script routes
 Route::get('/dashboard/scripts/checkSlug', [DashboardScriptController::class, 'checkSlug']);
-
-Route::group(['middleware' => ['filologis','admin']], function () {
+Route::group(['middleware' => ['adminOrFilologis']], function () {
     Route::resource('/dashboard/scripts', DashboardScriptController::class);
 });
 
 // OCR routes
 Route::post('/dashboard/scripts/performOCR', [OcrController::class, 'performOCR']);
 
-
+// Bookmark routes
 Route::middleware('auth')->group(function () {
     Route::post('/scripts/{script}/bookmark', [BookmarkController::class, 'store'])->name('bookmarks.store');
     Route::delete('/scripts/{script}/bookmark', [BookmarkController::class, 'destroy'])->name('bookmarks.destroy');
