@@ -80,7 +80,7 @@
                     @enderror
                 </div>
                 <div class="mb-3">
-                    <label for="bahasa" class="form-label">Bahasa Script</label>
+                    <label for="bahasa" class="form-label">Bahasa Naskah</label>
                     <input type="text" class="form-control @error('bahasa') is-invalid @enderror" id="bahasa"
                         name="bahasa" value="{{ old('bahasa', $script->bahasa) }}">
                     @error('bahasa')

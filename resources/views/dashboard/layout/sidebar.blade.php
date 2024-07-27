@@ -48,7 +48,7 @@
                                 <a class="nav-link {{ Request::is('dashboard/categories*') ? 'active' : '' }}"
                                     aria-current="page" href="/dashboard/categories">
                                     <span class="align-text-bottom"></span>
-                                    Categories
+                                    Kategori
                                 </a>
                             </li>
                         </ul>

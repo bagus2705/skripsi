@@ -87,10 +87,8 @@ class DashboardScriptController extends Controller
      */
     public function update(Request $request, Script $script)
     {
-        // Initialize the rules array
         $rules = [];
 
-        // Check if the user has 'admin' role
         if (Gate::allows('admin')) {
             $rules = [
                 'title' => 'required|max:255',
@@ -106,7 +104,6 @@ class DashboardScriptController extends Controller
                 'translasi' => 'nullable'
             ];
         }
-        // Check if the user has 'filologis' role
         elseif (Gate::allows('filologis')) {
             $rules = [
                 'transkrip' => 'nullable',
@@ -114,10 +111,8 @@ class DashboardScriptController extends Controller
             ];
         }
 
-        // Validate the request with the appropriate rules
         $validatedData = $request->validate($rules);
 
-        // Handle the image upload if present
         if ($request->file('image')) {
             if ($script->image) {
                 Storage::delete($script->image);
@@ -125,7 +120,6 @@ class DashboardScriptController extends Controller
             $validatedData['image'] = $request->file('image')->store('script-images');
         }
 
-        // Update the script with validated data
         $script->update($validatedData);
 
         return redirect('/dashboard/scripts')->with('success', 'Naskah berhasil diubah!');

@@ -1,6 +1,5 @@
 <?php
 
-// app/Services/OcrServices.php
 
 namespace App\Services;
 

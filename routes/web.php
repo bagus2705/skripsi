@@ -8,7 +8,6 @@ use App\Http\Controllers\{
     DashboardCategoryController,
     DashboardScriptController,
     OcrController,
-    DashboardFilologisController,
     BookmarkController
 };
 
