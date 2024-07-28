@@ -42,12 +42,12 @@ class DashboardScriptController extends Controller
             'image' => 'image|file|max:1000|nullable',
             'category_id' => 'required',
             'pengarang' => 'string|max:255|nullable',
-            'lokasi_ditemukan' => 'string|max:255|nullable',
-            'tahun_ditemukan' => 'nullable|integer|min:1|max:' . date('Y'), 
+            'lokasi' => 'string|max:255|nullable',
+            'tahun' => 'nullable|integer|min:1|max:' . date('Y'),
             'bahasa' => 'nullable|string|max:64',
             'detail' => 'required',
             'transkrip' => 'nullable|string',
-            'translasi' => 'nullable|string'   
+            'translasi' => 'nullable|string'
         ]);
 
         if ($request->file('image')) {
@@ -61,16 +61,6 @@ class DashboardScriptController extends Controller
 
 
     /**
-     * Display the specified resource.
-     */
-    public function show(Script $script)
-    {
-        return view('dashboard.scripts.show', [
-            'script' => $script
-        ]);
-    }
-
-    /**
      * Show the form for editing the specified resource.
      */
     public function edit(Script $script)
@@ -79,7 +69,6 @@ class DashboardScriptController extends Controller
             'script' => $script,
             'categories' => Category::all()
         ]);
-        
     }
 
     /**
@@ -91,20 +80,19 @@ class DashboardScriptController extends Controller
 
         if (Gate::allows('admin')) {
             $rules = [
-                'title' => 'required|max:255',
+                'title' => 'required|max:50',
                 'slug' => 'required|unique:scripts,slug,' . $script->id,
                 'category_id' => 'required',
-                'pengarang' => 'nullable|max:255',
-                'lokasi_ditemukan' => 'nullable|max:255',
-                'tahun_ditemukan' => 'nullable|max:255',
-                'bahasa' => 'nullable|max:255',
-                'detail' => 'nullable',
+                'pengarang' => 'nullable|max:50',
+                'lokasi' => 'nullable|max:50',
+                'tahun' => 'nullable|integer|min:1|max:' . date('Y'),
+                'bahasa' => 'nullable|max:50',
+                'detail' => 'required',
                 'image' => 'image|file|max:1024',
                 'transkrip' => 'nullable',
                 'translasi' => 'nullable'
             ];
-        }
-        elseif (Gate::allows('filologis')) {
+        } elseif (Gate::allows('filologis')) {
             $rules = [
                 'transkrip' => 'nullable',
                 'translasi' => 'nullable'

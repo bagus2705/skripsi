@@ -43,6 +43,6 @@ class DatabaseSeeder extends Seeder
             'name' => 'Mathematical',
             'slug' => 'mathematical'
         ]);
-        Script::factory(30)->create();
+        Script::factory(15)->create();
     }
 }

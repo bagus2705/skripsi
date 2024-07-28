@@ -14,12 +14,12 @@ class ScriptController extends Controller
         $title = '';
         $categories = Category::orderBy('name', 'asc')->get();
         $scripts = Script::orderBy('title')
-            ->filter(request(['search', 'category', 'pengarang', 'lokasi_ditemukan', 'tahun_ditemukan', 'bahasa']))
+            ->filter(request(['search', 'category', 'pengarang', 'lokasi', 'tahun', 'bahasa']))
             ->paginate(15)
             ->withQueryString();
 
-        $lokasi_ditemukan = $scripts->unique('lokasi_ditemukan')->sortBy('lokasi_ditemukan');
-        $tahun_ditemukan = $scripts->unique('tahun_ditemukan')->sortBy('tahun_ditemukan');
+        $lokasi = $scripts->unique('lokasi')->sortBy('lokasi');
+        $tahun = $scripts->unique('tahun')->sortBy('tahun');
         $bahasa = $scripts->unique('bahasa')->sortBy('bahasa');
 
         if (request('category')) {
@@ -31,8 +31,8 @@ class ScriptController extends Controller
             "title" => "All Naskah" . $title,
             "scripts" => $scripts,
             "categories" => $categories,
-            "lokasi_ditemukan" => $lokasi_ditemukan,
-            "tahun_ditemukan" => $tahun_ditemukan,
+            "lokasi" => $lokasi,
+            "tahun" => $tahun,
             "bahasa" => $bahasa
         ]);
     }

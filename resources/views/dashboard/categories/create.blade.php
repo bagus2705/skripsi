@@ -35,11 +35,15 @@
         const title = document.querySelector('#name');
         const slug = document.querySelector('#slug');
 
-        title.addEventListener('change', function() {
-            fetch('/dashboard/categories/checkSlug?title=' + title.value)
+        function generateSlug() {
+            fetch('/dashboard/scripts/checkSlug?title=' + title.value)
                 .then(response => response.json())
                 .then(data => slug.value = data.slug)
-        })
+                .catch(error => console.error('Error fetching slug:', error));
+        }
+
+        title.addEventListener('change', generateSlug);
+        title.addEventListener('blur', generateSlug);
       
     </script>
 @endsection

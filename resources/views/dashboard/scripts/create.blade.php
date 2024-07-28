@@ -55,20 +55,20 @@
                 @enderror
             </div>
             <div class="mb-3">
-                <label for="lokasi_ditemukan" class="form-label">Lokasi Ditemukan</label>
-                <input type="text" class="form-control @error('lokasi_ditemukan') is-invalid @enderror"
-                    id="lokasi_ditemukan" name="lokasi_ditemukan" value="{{ old('lokasi_ditemukan') }}">
-                @error('lokasi_ditemukan')
+                <label for="lokasi" class="form-label">Lokasi</label>
+                <input type="text" class="form-control @error('lokasi') is-invalid @enderror"
+                    id="lokasi" name="lokasi" value="{{ old('lokasi') }}">
+                @error('lokasi')
                     <div class="invalid-feedback">
                         {{ $message }}
                     </div>
                 @enderror
             </div>
             <div class="mb-3">
-                <label for="tahun_ditemukan" class="form-label">Tahun Ditemukan</label>
-                <input type="text" class="form-control @error('tahun_ditemukan') is-invalid @enderror"
-                    id="tahun_ditemukan" name="tahun_ditemukan" value="{{ old('tahun_ditemukan') }}">
-                @error('tahun_ditemukan')
+                <label for="tahun" class="form-label">Tahun</label>
+                <input type="text" class="form-control @error('tahun') is-invalid @enderror"
+                    id="tahun" name="tahun" value="{{ old('tahun') }}">
+                @error('tahun')
                     <div class="invalid-feedback">
                         {{ $message }}
                     </div>
@@ -127,11 +127,15 @@
         const title = document.querySelector('#title');
         const slug = document.querySelector('#slug');
 
-        title.addEventListener('change', function() {
+        function generateSlug() {
             fetch('/dashboard/scripts/checkSlug?title=' + title.value)
                 .then(response => response.json())
                 .then(data => slug.value = data.slug)
-        })
+                .catch(error => console.error('Error fetching slug:', error));
+        }
+
+        title.addEventListener('change', generateSlug);
+        title.addEventListener('blur', generateSlug);
 
         document.addEventListener('trix-file-accept', function(e) {
             e.preventDefault();

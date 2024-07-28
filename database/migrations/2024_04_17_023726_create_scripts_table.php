@@ -13,11 +13,11 @@ return new class extends Migration
     {
         Schema::create('scripts', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('category_id')->constrained()->nDelete('cascade');
+            $table->foreignId('category_id')->constrained()->onDelete('cascade');
             $table->string('title');
             $table->string('pengarang')->nullable();
-            $table->string('lokasi_ditemukan')->nullable();
-            $table->unsignedInteger('tahun_ditemukan')->nullable();
+            $table->string('lokasi')->nullable();
+            $table->unsignedInteger('tahun')->nullable();
             $table->string('bahasa')->nullable();
             $table->string('slug')->unique();
             $table->string('image')->nullable();

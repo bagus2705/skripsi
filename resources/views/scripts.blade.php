@@ -47,68 +47,68 @@
                                 </div>
                             </div>
                             <div class="mb-3">
-                                <label for="lokasi_ditemukan" class="form-label">Location Found</label>
+                                <label for="lokasi" class="form-label">Location</label>
                                 <div class="border p-3 rounded">
-                                    @foreach ($lokasi_ditemukan as $lokasi)
-                                        @if ($lokasi->lokasi_ditemukan !== null)
+                                    @foreach ($lokasi as $lokasi)
+                                        @if ($lokasi->lokasi !== null)
                                             <div class="form-check">
-                                                <input class="form-check-input" type="radio" name="lokasi_ditemukan"
-                                                    value="{{ $lokasi->lokasi_ditemukan }}"
-                                                    id="lokasi_ditemukan{{ $lokasi->id }}" onchange="this.form.submit()"
-                                                    {{ $lokasi->lokasi_ditemukan == request('lokasi_ditemukan') ? 'checked' : '' }}>
-                                                <label class="form-check-label" for="lokasi_ditemukan{{ $lokasi->id }}">
-                                                    {{ $lokasi->lokasi_ditemukan }}
+                                                <input class="form-check-input" type="radio" name="lokasi"
+                                                    value="{{ $lokasi->lokasi }}"
+                                                    id="lokasi{{ $lokasi->id }}" onchange="this.form.submit()"
+                                                    {{ $lokasi->lokasi == request('lokasi') ? 'checked' : '' }}>
+                                                <label class="form-check-label" for="lokasi{{ $lokasi->id }}">
+                                                    {{ $lokasi->lokasi }}
                                                 </label>
                                             </div>
                                         @endif
                                     @endforeach
                                     <div class="form-check">
-                                        <input class="form-check-input" type="radio" name="lokasi_ditemukan"
-                                            value="null" id="lokasi_ditemukan_null" onchange="this.form.submit()"
-                                            {{ request('lokasi_ditemukan') === 'null' ? 'checked' : '' }}>
-                                        <label class="form-check-label" for="lokasi_ditemukan_null">
+                                        <input class="form-check-input" type="radio" name="lokasi"
+                                            value="null" id="lokasi_null" onchange="this.form.submit()"
+                                            {{ request('lokasi') === 'null' ? 'checked' : '' }}>
+                                        <label class="form-check-label" for="lokasi_null">
                                             N/A
                                         </label>
                                     </div>
                                     <div class="form-check">
-                                        <input class="form-check-input" type="radio" name="lokasi_ditemukan"
-                                            value="" id="lokasi_ditemukan_all" onchange="this.form.submit()"
-                                            {{ !request('lokasi_ditemukan') ? 'checked' : '' }}>
-                                        <label class="form-check-label" for="lokasi_ditemukan_all">
+                                        <input class="form-check-input" type="radio" name="lokasi"
+                                            value="" id="lokasi_all" onchange="this.form.submit()"
+                                            {{ !request('lokasi') ? 'checked' : '' }}>
+                                        <label class="form-check-label" for="lokasi_all">
                                             All Locations
                                         </label>
                                     </div>
                                 </div>
                             </div>
                             <div class="mb-3">
-                                <label for="tahun_ditemukan" class="form-label">Year Found</label>
+                                <label for="tahun" class="form-label">Year</label>
                                 <div class="border p-3 rounded">
-                                    @foreach ($tahun_ditemukan as $tahun)
-                                        @if ($tahun->tahun_ditemukan !== null)
+                                    @foreach ($tahun as $tahun)
+                                        @if ($tahun->tahun !== null)
                                             <div class="form-check">
-                                                <input class="form-check-input" type="radio" name="tahun_ditemukan"
-                                                    value="{{ $tahun->tahun_ditemukan }}"
-                                                    id="tahun_ditemukan{{ $tahun->id }}" onchange="this.form.submit()"
-                                                    {{ $tahun->tahun_ditemukan == request('tahun_ditemukan') ? 'checked' : '' }}>
-                                                <label class="form-check-label" for="tahun_ditemukan{{ $tahun->id }}">
-                                                    {{ $tahun->tahun_ditemukan }}
+                                                <input class="form-check-input" type="radio" name="tahun"
+                                                    value="{{ $tahun->tahun }}"
+                                                    id="tahun{{ $tahun->id }}" onchange="this.form.submit()"
+                                                    {{ $tahun->tahun == request('tahun') ? 'checked' : '' }}>
+                                                <label class="form-check-label" for="tahun{{ $tahun->id }}">
+                                                    {{ $tahun->tahun }}
                                                 </label>
                                             </div>
                                         @endif
                                     @endforeach
                                     <div class="form-check">
-                                        <input class="form-check-input" type="radio" name="tahun_ditemukan" value="null"
-                                            id="tahun_ditemukan_null" onchange="this.form.submit()"
-                                            {{ request('tahun_ditemukan') === 'null' ? 'checked' : '' }}>
-                                        <label class="form-check-label" for="tahun_ditemukan_null">
+                                        <input class="form-check-input" type="radio" name="tahun" value="null"
+                                            id="tahun_null" onchange="this.form.submit()"
+                                            {{ request('tahun') === 'null' ? 'checked' : '' }}>
+                                        <label class="form-check-label" for="tahun_null">
                                             N/A
                                         </label>
                                     </div>
                                     <div class="form-check">
-                                        <input class="form-check-input" type="radio" name="tahun_ditemukan"
-                                            value="" id="tahun_ditemukan_all" onchange="this.form.submit()"
-                                            {{ !request('tahun_ditemukan') ? 'checked' : '' }}>
-                                        <label class="form-check-label" for="tahun_ditemukan_all">
+                                        <input class="form-check-input" type="radio" name="tahun"
+                                            value="" id="tahun_all" onchange="this.form.submit()"
+                                            {{ !request('tahun') ? 'checked' : '' }}>
+                                        <label class="form-check-label" for="tahun_all">
                                             All Years
                                         </label>
                                     </div>

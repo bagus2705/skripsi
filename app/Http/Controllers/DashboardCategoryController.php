@@ -64,7 +64,7 @@ class DashboardCategoryController extends Controller
     public function update(Request $request, Category $category)
     {
         $rules = [
-            'name' => 'required|max:255'
+            'name' => 'required|max:50'
         ];
         if ($request->slug != $category->slug) {
             $rules['slug'] = 'required|unique:categories';

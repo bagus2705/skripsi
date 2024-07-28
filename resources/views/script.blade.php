@@ -54,10 +54,10 @@
                                     class="text-decoration-none text-dark">{{ $script->pengarang ?? 'N/A' }}</a></p>
                             <p><strong>Category:</strong> <a
                                     class="text-decoration-none text-dark">{{ $script->category->name }}</a></p>
-                            <p><strong>Lokasi Ditemukan:</strong> <a
-                                    class="text-decoration-none text-dark">{{ $script->lokasi_ditemukan ?? 'N/A' }}</a></p>
-                            <p><strong>Tahun Ditemukan:</strong> <a
-                                    class="text-decoration-none text-dark">{{ $script->tahun_ditemukan ?? 'N/A' }}</a></p>
+                            <p><strong>Lokasi:</strong> <a
+                                    class="text-decoration-none text-dark">{{ $script->lokasi ?? 'N/A' }}</a></p>
+                            <p><strong>Tahun:</strong> <a
+                                    class="text-decoration-none text-dark">{{ $script->tahun ?? 'N/A' }}</a></p>
                             <p><strong>Bahasa:</strong> <a
                                     class="text-decoration-none text-dark">{{ $script->bahasa ?? 'N/A' }}</a></p>
                         </div>
