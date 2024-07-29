@@ -37,7 +37,7 @@ class DashboardScriptController extends Controller
     public function store(Request $request)
     {
         $validatedData = $request->validate([
-            'title' => 'required|max:255',
+            'title' => 'required|max:100',
             'slug' => 'required|unique:scripts',
             'image' => 'image|file|max:1000|nullable',
             'category_id' => 'required',
@@ -80,7 +80,7 @@ class DashboardScriptController extends Controller
 
         if (Gate::allows('admin')) {
             $rules = [
-                'title' => 'required|max:50',
+                'title' => 'required|max:100',
                 'slug' => 'required|unique:scripts,slug,' . $script->id,
                 'category_id' => 'required',
                 'pengarang' => 'nullable|max:50',
