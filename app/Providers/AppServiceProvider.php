@@ -33,8 +33,8 @@ class AppServiceProvider extends ServiceProvider
             return $user->role === 'filologis';
         });
 
-        Gate::define('user', function (User $user) {
-            return $user->role === 'user';
+        Gate::define('pembaca', function (User $user) {
+            return $user->role === 'pembaca';
         });
     }
 }

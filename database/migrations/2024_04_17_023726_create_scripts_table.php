@@ -22,7 +22,7 @@ return new class extends Migration
             $table->string('slug')->unique();
             $table->string('image')->nullable();
             $table->text('detail');
-            $table->text('transkrip')->nullable();
+            $table->text('transliterasi')->nullable();
             $table->text('translasi')->nullable();
         });
     }

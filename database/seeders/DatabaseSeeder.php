@@ -16,17 +16,17 @@ class DatabaseSeeder extends Seeder
     public function run(): void
     {
         User::create([
-            'email' => 'bagus@gmail.com',
+            'email' => 'admin@gmail.com',
             'password' => bcrypt('password'),
             'role' => 'admin'
         ]);
         User::create([
-            'email' => 'bagu@gmail.com',
+            'email' => 'pembaca@gmail.com',
             'password' => bcrypt('password'),
-            'role' => 'user'
+            'role' => 'pembaca'
         ]);
         User::create([
-            'email' => 'bag@gmail.com',
+            'email' => 'filolog@gmail.com',
             'password' => bcrypt('password'),
             'role' => 'filologis'
         ]);
@@ -93,7 +93,7 @@ class DatabaseSeeder extends Seeder
             'bahasa' => 'Balinese',
             'slug' => 'manuskrip-kuno-bali',
             'detail' => 'Manuskrip yang berisi tentang tradisi dan kebudayaan Bali.',
-            'transkrip' => 'Transkrip asli dari manuskrip kuno Bali.',
+            'transliterasi' => 'Transliterasi asli dari manuskrip kuno Bali.',
         ]);
 
         Script::create([
@@ -104,7 +104,7 @@ class DatabaseSeeder extends Seeder
             'bahasa' => 'Arabic',
             'slug' => 'quran-manuscript',
             'detail' => 'Ancient Quran manuscript.',
-            'transkrip' => 'Original transcriptions of the Quran.',
+            'transliterasi' => 'Original transcriptions of the Quran.',
         ]);
 
         Script::create([
@@ -116,7 +116,7 @@ class DatabaseSeeder extends Seeder
             'bahasa' => 'Arabic',
             'slug' => 'al-khwarizmi-algebra',
             'detail' => 'A foundational text in algebra by the Persian mathematician Al-Khwarizmi.',
-            'transkrip' => 'Original Arabic text of Al-Khwarizmi\'s Algebra.',
+            'transliterasi' => 'Original Arabic text of Al-Khwarizmi\'s Algebra.',
         ]);
 
         Script::create([
@@ -128,7 +128,7 @@ class DatabaseSeeder extends Seeder
             'bahasa' => 'English',
             'slug' => 'on-the-origin-of-species',
             'detail' => 'The foundation of evolutionary biology.',
-            'transkrip' => 'Original English text of Darwin\'s work.',
+            'transliterasi' => 'Original English text of Darwin\'s work.',
         ]);
 
         Script::create([
@@ -140,7 +140,7 @@ class DatabaseSeeder extends Seeder
             'bahasa' => 'English',
             'slug' => 'decline-fall-roman-empire',
             'detail' => 'A comprehensive history of the Roman Empire from the height of the empire to the fall of Byzantium.',
-            'transkrip' => 'Original English text.',
+            'transliterasi' => 'Original English text.',
         ]);
 
 
@@ -153,7 +153,7 @@ class DatabaseSeeder extends Seeder
             'bahasa' => 'Italian',
             'slug' => 'the-divine-comedy',
             'detail' => 'An epic poem describing the journey through Hell, Purgatory, and Paradise.',
-            'transkrip' => 'Original Italian text.',
+            'transliterasi' => 'Original Italian text.',
         ]);
 
         Script::create([
@@ -165,7 +165,7 @@ class DatabaseSeeder extends Seeder
             'bahasa' => 'Italian',
             'slug' => 'da-vinci-notebooks',
             'detail' => 'Notes on art, science, and design.',
-            'transkrip' => 'Original Italian text.',
+            'transliterasi' => 'Original Italian text.',
         ]);
 
         Script::create([
@@ -177,7 +177,7 @@ class DatabaseSeeder extends Seeder
             'bahasa' => 'German',
             'slug' => 'the-well-tempered-clavier',
             'detail' => 'A collection of two sets of preludes and fugues in all 24 major and minor keys.',
-            'transkrip' => 'Original German text.',
+            'transliterasi' => 'Original German text.',
         ]);
 
         Script::create([
@@ -189,7 +189,7 @@ class DatabaseSeeder extends Seeder
             'bahasa' => 'Venetian',
             'slug' => 'the-travels-of-marco-polo',
             'detail' => 'A travelogue describing Polo\'s travels through Asia.',
-            'transkrip' => 'Original Venetian text.',
+            'transliterasi' => 'Original Venetian text.',
         ]);
 
         Script::create([
@@ -201,7 +201,7 @@ class DatabaseSeeder extends Seeder
             'bahasa' => 'Latin',
             'slug' => 'principia-mathematica',
             'detail' => 'A work in three books by Isaac Newton, in Latin, first published 5 July 1687.',
-            'transkrip' => 'Original Latin text.',
+            'transliterasi' => 'Original Latin text.',
         ]);
 
         Script::create([
@@ -213,7 +213,7 @@ class DatabaseSeeder extends Seeder
             'bahasa' => 'Latin',
             'slug' => 'de-humani-corporis-fabrica',
             'detail' => 'A set of books on human anatomy written by Andreas Vesalius.',
-            'transkrip' => 'Original Latin text.',
+            'transliterasi' => 'Original Latin text.',
         ]);
 
         Script::create([
@@ -225,7 +225,7 @@ class DatabaseSeeder extends Seeder
             'bahasa' => 'French',
             'slug' => 'emile-on-education',
             'detail' => 'A treatise on the nature of education and on the nature of man.',
-            'transkrip' => 'Original French text.',
+            'transliterasi' => 'Original French text.',
         ]);
 
         Script::create([
@@ -237,7 +237,7 @@ class DatabaseSeeder extends Seeder
             'bahasa' => 'English',
             'slug' => 'the-wealth-of-nations',
             'detail' => 'An inquiry into the nature and causes of the wealth of nations.',
-            'transkrip' => 'Original English text.',
+            'transliterasi' => 'Original English text.',
         ]);
         Script::create([
             'category_id' => 1,
@@ -248,7 +248,7 @@ class DatabaseSeeder extends Seeder
             'bahasa' => 'Akkadian',
             'slug' => 'epic-of-gilgamesh',
             'detail' => 'Sebuah epik kuno dari Mesopotamia yang merupakan salah satu karya sastra terawal.',
-            'transkrip' => 'Original Akkadian text.',
+            'transliterasi' => 'Original Akkadian text.',
         ]);
 
         Script::create([
@@ -260,7 +260,7 @@ class DatabaseSeeder extends Seeder
             'bahasa' => 'Sanskrit',
             'slug' => 'bhagavad-gita',
             'detail' => 'Sebuah teks suci Hindu yang merupakan bagian dari Mahabharata.',
-            'transkrip' => 'Original Sanskrit text.',
+            'transliterasi' => 'Original Sanskrit text.',
         ]);
 
         Script::create([
@@ -272,7 +272,7 @@ class DatabaseSeeder extends Seeder
             'bahasa' => 'Ancient Greek',
             'slug' => 'euclids-elements',
             'detail' => 'Karya matematika yang sangat berpengaruh mengenai geometri.',
-            'transkrip' => 'Original Ancient Greek text.',
+            'transliterasi' => 'Original Ancient Greek text.',
         ]);
 
         Script::create([
@@ -284,7 +284,7 @@ class DatabaseSeeder extends Seeder
             'bahasa' => 'English',
             'slug' => 'principles-of-geology',
             'detail' => 'Karya yang memperkenalkan ide uniformitarianisme dalam geologi.',
-            'transkrip' => 'Original English text.',
+            'transliterasi' => 'Original English text.',
         ]);
 
         Script::create([
@@ -296,7 +296,7 @@ class DatabaseSeeder extends Seeder
             'bahasa' => 'Latin',
             'slug' => 'annals',
             'detail' => 'A historical work by Tacitus that covers the history of the Roman Empire from the death of Augustus to the end of Nero’s reign.',
-            'transkrip' => 'Original Latin text.',
+            'transliterasi' => 'Original Latin text.',
         ]);
 
         Script::create([
@@ -308,7 +308,7 @@ class DatabaseSeeder extends Seeder
             'bahasa' => 'Spanish',
             'slug' => 'don-quixote',
             'detail' => 'Novel yang sering dianggap sebagai salah satu karya sastra terbesar.',
-            'transkrip' => 'Original Spanish text.',
+            'transliterasi' => 'Original Spanish text.',
         ]);
 
         Script::create([
@@ -320,7 +320,7 @@ class DatabaseSeeder extends Seeder
             'bahasa' => 'Latin',
             'slug' => 'book-of-kells',
             'detail' => 'Manuskrip iluminasi yang merupakan contoh indah seni abad pertengahan.',
-            'transkrip' => 'Original Latin text.',
+            'transliterasi' => 'Original Latin text.',
         ]);
 
         Script::create([
@@ -332,7 +332,7 @@ class DatabaseSeeder extends Seeder
             'bahasa' => 'German',
             'slug' => 'eine-kleine-nachtmusik',
             'detail' => 'Komposisi musik terkenal oleh Mozart.',
-            'transkrip' => 'Original German text.',
+            'transliterasi' => 'Original German text.',
         ]);
 
         Script::create([
@@ -344,7 +344,7 @@ class DatabaseSeeder extends Seeder
             'bahasa' => 'Japanese',
             'slug' => 'the-pillow-book',
             'detail' => 'Sebuah jurnal berisi catatan pribadi dan observasi.',
-            'transkrip' => 'Original Japanese text.',
+            'transliterasi' => 'Original Japanese text.',
         ]);
 
         Script::create([
@@ -356,7 +356,7 @@ class DatabaseSeeder extends Seeder
             'bahasa' => 'German',
             'slug' => 'critique-of-pure-reason',
             'detail' => 'Karya utama dalam filsafat modern yang membahas teori pengetahuan.',
-            'transkrip' => 'Original German text.',
+            'transliterasi' => 'Original German text.',
         ]);
 
         Script::create([
@@ -368,7 +368,7 @@ class DatabaseSeeder extends Seeder
             'bahasa' => 'English',
             'slug' => 'principles-of-psychology',
             'detail' => 'Sebuah karya awal dalam psikologi yang menguraikan berbagai teori.',
-            'transkrip' => 'Original English text.',
+            'transliterasi' => 'Original English text.',
         ]);
 
         Script::create([
@@ -380,7 +380,7 @@ class DatabaseSeeder extends Seeder
             'bahasa' => 'French',
             'slug' => 'spirit-of-laws',
             'detail' => 'Sebuah karya tentang teori pemerintahan dan hukum.',
-            'transkrip' => 'Original French text.',
+            'transliterasi' => 'Original French text.',
         ]);
 
         Script::create([
@@ -392,7 +392,7 @@ class DatabaseSeeder extends Seeder
             'bahasa' => 'English',
             'slug' => 'general-theory-employment',
             'detail' => 'Sebuah karya yang membahas teori ekonomi dan kebijakan pemerintah.',
-            'transkrip' => 'Original English text.',
+            'transliterasi' => 'Original English text.',
         ]);
     }
 }

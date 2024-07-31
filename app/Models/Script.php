@@ -26,10 +26,6 @@ class Script extends Model
             });
         });
 
-        $query->when($filters['pengarang'] ?? false, function ($query, $pengarang) {
-            return $query->where('pengarang', $pengarang);
-        });
-
         $query->when(isset($filters['lokasi']), function ($query) use ($filters) {
             return $filters['lokasi'] === 'null'
                 ? $query->whereNull('lokasi')

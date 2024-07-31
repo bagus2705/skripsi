@@ -113,15 +113,15 @@
                             {{ $message }}
                         </div>
                     @enderror
-                    <button type="button" class="btn btn-secondary mt-2" onclick="performOCR()">Perform OCR for Transkrip</button>
+                    <button type="button" class="btn btn-secondary mt-2" onclick="performOCR()">Perform OCR for Transliterasi</button>
                 </div>
             @endcan
 
             <div class="mb-3">
-                <label for="transkrip" class="form-label">Transkrip</label>
-                <input id="transkrip" type="hidden" name="transkrip" value="{{ old('transkrip', $script->transkrip) }}">
-                <trix-editor input="transkrip"></trix-editor>
-                @error('transkrip')
+                <label for="transliterasi" class="form-label">Transliterasi</label>
+                <input id="transliterasi" type="hidden" name="transliterasi" value="{{ old('transliterasi', $script->transliterasi) }}">
+                <trix-editor input="transliterasi"></trix-editor>
+                @error('transliterasi')
                     <p class="text-danger">{{ $message }}</p>
                 @enderror
             </div>
@@ -194,12 +194,12 @@
                     .then(response => response.json())
                     .then(data => {
                         if (data.text) {
-                            const transkripEditor = document.querySelector("trix-editor[input='transkrip']").editor;
-                            transkripEditor.setSelectedRange([0, transkripEditor.getDocument().toString().length])
-                            transkripEditor.deleteInDirection("backward")
-                            transkripEditor.insertString(data.text)
+                            const transliterasiEditor = document.querySelector("trix-editor[input='transliterasi']").editor;
+                            transliterasiEditor.setSelectedRange([0, transliterasiEditor.getDocument().toString().length])
+                            transliterasiEditor.deleteInDirection("backward")
+                            transliterasiEditor.insertString(data.text)
 
-                            document.querySelector('#transkrip').value = data.text;
+                            document.querySelector('#transliterasi').value = data.text;
                             alert('OCR completed successfully.');
                         } else {
                             alert('OCR failed. Please try again.');

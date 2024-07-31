@@ -14,7 +14,7 @@ class ScriptController extends Controller
         $title = '';
         $categories = Category::orderBy('name', 'asc')->get();
         $scripts = Script::orderBy('title')
-            ->filter(request(['search', 'category', 'pengarang', 'lokasi', 'tahun', 'bahasa']))
+            ->filter(request(['search', 'category','lokasi', 'tahun', 'bahasa']))
             ->paginate(15)
             ->withQueryString();
 
@@ -44,8 +44,5 @@ class ScriptController extends Controller
             "script" => $script
         ]);
     }
-    public function bookmarks()
-    {
-        return $this->belongsToMany(User::class, 'bookmarks');
-    }
+    
 }

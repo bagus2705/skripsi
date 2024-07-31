@@ -39,8 +39,8 @@
                         </article>
 
                         <article class="my-3 fs-5">
-                            <h2 class="mb-4">Transkrip</h2>
-                            {!! $script->transkrip ?: 'N/A' !!}
+                            <h2 class="mb-4">Transliterasi</h2>
+                            {!! $script->transliterasi ?: 'N/A' !!}
                         </article>
 
                         <article class="my-3 fs-5">

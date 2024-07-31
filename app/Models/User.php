@@ -49,21 +49,6 @@ class User extends Authenticatable
         'password' => 'hashed',
     ];
 
-    /**
-     * Set the user's role.
-     *
-     * @param  string  $value
-     * @return void
-     */
-    public function setRoleAttribute($value)
-    {
-        if (!in_array($value, ['user', 'admin', 'filologis'])) {
-            throw new \InvalidArgumentException('Invalid role');
-        }
-
-        $this->attributes['role'] = $value;
-    }
-
     public function bookmarks()
     {
         return $this->belongsToMany(Script::class, 'bookmarks');

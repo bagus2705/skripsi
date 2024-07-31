@@ -25,7 +25,7 @@ class ScriptFactory extends Factory
             'bahasa' => fake()->sentence(mt_rand(1, 2)),
             'detail' => collect($this->faker->paragraphs(mt_rand(2, 3)))
                 ->map(fn ($p) => "<p>$p</p>")->implode(''),
-            'transkrip' => fake()->paragraph(),
+            'transliterasi' => fake()->paragraph(),
             'category_id' => mt_rand(1, 3),
             'translasi' => fake()->paragraph()
         ];

@@ -46,7 +46,7 @@ class DashboardScriptController extends Controller
             'tahun' => 'nullable|integer|min:1|max:' . date('Y'),
             'bahasa' => 'nullable|string|max:64',
             'detail' => 'required',
-            'transkrip' => 'nullable|string',
+            'transliterasi' => 'nullable|string',
             'translasi' => 'nullable|string'
         ]);
 
@@ -89,13 +89,13 @@ class DashboardScriptController extends Controller
                 'bahasa' => 'nullable|max:50',
                 'detail' => 'required',
                 'image' => 'image|file|max:1024',
-                'transkrip' => 'nullable',
-                'translasi' => 'nullable'
+                'transliterasi' => 'nullable|string',
+                'translasi' => 'nullable|string'
             ];
         } elseif (Gate::allows('filologis')) {
             $rules = [
-                'transkrip' => 'nullable',
-                'translasi' => 'nullable'
+                'transliterasi' => 'nullable|string',
+                'translasi' => 'nullable|string'
             ];
         }
 
