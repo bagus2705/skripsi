@@ -35,6 +35,10 @@ class AppServiceProvider extends ServiceProvider
 
         Gate::define('pembaca', function (User $user) {
             return $user->role === 'pembaca';
-        });
+        }
+         if (config('app.env') != 'local') {
+            \URL::forceScheme('https');
+        }
+    );
     }
 }
