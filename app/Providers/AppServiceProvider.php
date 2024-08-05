@@ -5,7 +5,7 @@ use APP\Models\User;
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Pagination\Paginator;
 use Illuminate\Support\Facades\Gate;
-
+use Illuminate\Support\Facades\URL; 
 
 
 class AppServiceProvider extends ServiceProvider
@@ -35,10 +35,10 @@ class AppServiceProvider extends ServiceProvider
 
         Gate::define('pembaca', function (User $user) {
             return $user->role === 'pembaca';
+        });
+
+        if (config('app.env') != 'local') {
+            URL::forceScheme('https');
         }
-         if (config('app.env') != 'local') {
-            \URL::forceScheme('https');
-        }
-    );
     }
 }
