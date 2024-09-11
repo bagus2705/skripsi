@@ -2,16 +2,16 @@
 
 @section('container')
     <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
-        <h1 class="h2">Edit Category</h1>
+        <h1 class="h2">Ubah Kategori</h1>
     </div>
     <div class="col-lg 8">
         <form method="post" action="/dashboard/categories/{{ $category->slug }}" class="mb-5" enctype="multipart/form-data">
             @method('put')
             @csrf
             <div class="mb-3">
-                <label for="name" class="form-label">Name</label>
-                <input type="text" class="form-control @error('name') is-invalid @enderror" id="name"
-                    name="name" autofocus required value="{{ old('name', $category->name) }}">
+                <label for="name" class="form-label">Nama <span class="text-danger">*</span>  </label>
+                <input type="text" class="form-control @error('name') is-invalid @enderror" id="name" name="name"
+                    autofocus required value="{{ old('name', $category->name) }}">
                 @error('name')
                     <div class="invalid-feedback">
                         {{ $message }}
@@ -19,7 +19,7 @@
                 @enderror
             </div>
             <div class="mb-3">
-                <label for="slug" class="form-label">Slug</label>
+                <label for="slug" class="form-label">Slug <span class="text-danger">*</span> </label>
                 <input type="text" class="form-control @error('slug') is-invalid @enderror" id="slug" name="slug"
                     readonly value="{{ old('slug', $category->slug) }}">
                 @error('slug')
@@ -28,9 +28,8 @@
                     </div>
                 @enderror
             </div>
-           
-            
-            <button type="submit" class="btn btn-primary">Update Category</button>
+
+            <button type="submit" class="btn btn-primary">Ubah Kategori</button>
         </form>
     </div>
     <script>
@@ -46,6 +45,5 @@
 
         title.addEventListener('change', generateSlug);
         title.addEventListener('blur', generateSlug);
-       
     </script>
 @endsection

@@ -14,12 +14,23 @@ class DashboardScriptController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(Request $request)
     {
+        // Capture the search query
+        $search = $request->input('search');
+
+        // Fetch scripts based on the title only, paginate results
+        $scripts = Script::query()
+            ->when($search, function ($query, $search) {
+                return $query->where('title', 'like', '%' . $search . '%');
+            })
+            ->paginate(15);
+
         return view('dashboard.scripts.index', [
-            'scripts' => Script::all(),
+            'scripts' => $scripts,
         ]);
     }
+
 
     /**
      * Show the form for creating a new resource.
@@ -41,10 +52,10 @@ class DashboardScriptController extends Controller
             'slug' => 'required|unique:scripts',
             'image' => 'image|file|max:1000|nullable',
             'category_id' => 'required',
-            'pengarang' => 'string|max:255|nullable',
-            'lokasi' => 'string|max:255|nullable',
+            'pengarang' => 'nullable|max:50',
+            'lokasi' => 'nullable|max:50',
             'tahun' => 'nullable|integer|min:1|max:' . date('Y'),
-            'bahasa' => 'nullable|string|max:64',
+            'bahasa' => 'nullable|max:50',
             'detail' => 'required',
             'transliterasi' => 'nullable|string',
             'translasi' => 'nullable|string'

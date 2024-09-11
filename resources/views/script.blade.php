@@ -11,12 +11,12 @@
             <form action="{{ route('bookmarks.destroy', $script) }}" method="POST">
                 @csrf
                 @method('DELETE')
-                <button type="submit" class="btn btn-danger">Remove Bookmark</button>
+                <button type="submit" class="btn btn-danger">Hapus Bookmark</button>
             </form>
         @else
             <form action="{{ route('bookmarks.store', $script) }}" method="POST">
                 @csrf
-                <button type="submit" class="btn btn-primary">Bookmark</button>
+                <button type="submit" class="btn btn-primary">Tambah Bookmark</button>
             </form>
         @endif
     @endauth
@@ -30,7 +30,7 @@
                                     class="img-fluid mt-3">
                             @else
                                 <div class="text-center mt-3">
-                                    <span class="text-muted">No image available</span>
+                                    <span class="text-muted">Tidak ada gambar tersedia</span>
                                 </div>
                             @endif
                         </div>
@@ -52,7 +52,7 @@
                         <div class="author-category-box p-3 border rounded">
                             <p><strong>Author:</strong> <a
                                     class="text-decoration-none text-dark">{{ $script->pengarang ?? 'N/A' }}</a></p>
-                            <p><strong>Category:</strong> <a
+                            <p><strong>Kategori:</strong> <a
                                     class="text-decoration-none text-dark">{{ $script->category->name }}</a></p>
                             <p><strong>Lokasi:</strong> <a
                                     class="text-decoration-none text-dark">{{ $script->lokasi ?? 'N/A' }}</a></p>

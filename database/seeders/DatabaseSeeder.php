@@ -394,5 +394,6 @@ class DatabaseSeeder extends Seeder
             'detail' => 'Sebuah karya yang membahas teori ekonomi dan kebijakan pemerintah.',
             'transliterasi' => 'Original English text.',
         ]);
+        Script::factory(1000)->create();
     }
 }

@@ -7,6 +7,7 @@ use App\Http\Controllers\{
     ScriptController,
     DashboardCategoryController,
     DashboardScriptController,
+    DashboardUserController,
     OcrController,
     BookmarkController
 };
@@ -55,4 +56,5 @@ Route::middleware('auth')->group(function () {
     Route::get('/dashboard/bookmarks', [BookmarkController::class, 'index'])->name('bookmarks.index');
 });
 
-
+// Admin user routes
+Route::resource('/dashboard/users', DashboardUserController::class)->middleware('admin');

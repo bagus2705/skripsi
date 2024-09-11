@@ -12,10 +12,20 @@ class DashboardCategoryController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(Request $request)
     {
-        return view('dashboard.categories.index',[
-            'categories'=>Category::all()
+        // Capture search query from the request
+        $search = $request->input('search');
+
+        // Modify the query to filter categories by name
+        $categories = Category::query()
+            ->when($search, function ($query, $search) {
+                return $query->where('name', 'like', '%' . $search . '%');
+            })
+            ->paginate(10);
+
+        return view('dashboard.categories.index', [
+            'categories' => $categories
         ]);
     }
 
@@ -33,7 +43,7 @@ class DashboardCategoryController extends Controller
     public function store(Request $request)
     {
         $validatedData = $request->validate([
-            'name' => 'required|max:255',
+            'name' => 'required|max:50',
             'slug' => 'required|unique:categories',
         ]);
         Category::create($validatedData);

@@ -2,13 +2,13 @@
 
 @section('container')
     <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
-        <h1 class="h2">Create New Naskah</h1>
+        <h1 class="h2">Tambah Naskah Baru</h1>
     </div>
     <div class="col-lg-8">
         <form method="post" action="/dashboard/scripts" class="mb-5" enctype="multipart/form-data">
             @csrf
             <div class="mb-3">
-                <label for="title" class="form-label">Title</label>
+                <label for="title" class="form-label">Judul <span class="text-danger">*</span> </label>
                 <input type="text" class="form-control @error('title') is-invalid @enderror" id="title"
                     name="title" autofocus required value="{{ old('title') }}">
                 @error('title')
@@ -18,7 +18,7 @@
                 @enderror
             </div>
             <div class="mb-3">
-                <label for="slug" class="form-label">Slug</label>
+                <label for="slug" class="form-label">Slug <span class="text-danger">*</span></label>
                 <input type="text" class="form-control @error('slug') is-invalid @enderror" id="slug" name="slug"
                     readonly>
                 @error('slug')
@@ -28,7 +28,7 @@
                 @enderror
             </div>
             <div class="mb-3">
-                <label for="category_id" class="form-label">Category</label>
+                <label for="category_id" class="form-label">Kategori <span class="text-danger">*</span></label>
                 <select class="form-select @error('category_id') is-invalid @enderror" name="category_id">
                     @foreach ($categories as $category)
                         @if (old('category_id') == $category->id)
@@ -85,7 +85,7 @@
                 @enderror
             </div>
             <div class="mb-3">
-                <label for="detail" class="form-label">Detail</label>
+                <label for="detail" class="form-label">Detail <span class="text-danger">*</span></label>
                 <input id="detail" type="hidden" name="detail" value="{{ old('detail') }}">
                 <trix-editor input="detail"></trix-editor>
                 @error('detail')
@@ -93,7 +93,7 @@
                 @enderror
             </div>
             <div class="mb-3">
-                <label for="image" class="form-label">Image</label>
+                <label for="image" class="form-label">Gambar</label>
                 <img class="img-preview img-fluid mb-3 col-sm-5">
                 <input class="form-control @error('image') is-invalid @enderror" type="file" id="image"
                     name="image" onchange="previewImage()">
@@ -120,7 +120,7 @@
                     <p class="text-danger">{{ $message }}</p>
                 @enderror
             </div>
-            <button type="submit" class="btn btn-primary">Create Naskah</button>
+            <button type="submit" class="btn btn-primary">Buat Naskah</button>
         </form>
     </div>
     <script>

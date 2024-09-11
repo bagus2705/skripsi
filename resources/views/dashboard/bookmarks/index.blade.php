@@ -2,7 +2,7 @@
 
 @section('container')
     <div class="container mt-2">
-        <h1 class="mb-3 text-center">Your Bookmarks</h1>
+        <h1 class="mb-3 text-center">Bookmark Anda</h1>
 
         <div class="row row-cols-1 row-cols-md-3 g-4">
             @forelse ($bookmarks as $bookmark)
@@ -15,19 +15,19 @@
                                     class="card-img-top img-fluid mb-3">
                             @else
                                 <div class="text-center mb-3">
-                                    <span class="text-muted">No image available</span>
+                                    <span class="text-muted">Tidak ada gambar tersedia</span>
                                 </div>
                             @endif
                             <h7>{{ $bookmark->category->name }}</h7>
                             <p class="card-text mt-3">{{ Str::limit(strip_tags($bookmark->detail), 100) }}</p>
                             <a href="/scripts/{{ $bookmark->slug }}" class="btn btn-primary text-decoration-none btn-block">
-                                Read More
+                                Baca Selengkapnya
                             </a>
                         </div>
                     </div>
                 </div>
             @empty
-                <p class="text-center fs-4">You have no bookmarks.</p>
+                <p class="text-center fs-4">Anda tidak mempunyai naskah yang di bookmark</p>
             @endforelse
         </div>
     </div>

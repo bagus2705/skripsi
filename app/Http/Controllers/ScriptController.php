@@ -28,7 +28,7 @@ class ScriptController extends Controller
         }
 
         return view('scripts', [
-            "title" => "All Naskah" . $title,
+            "title" => "Semua Naskah" . $title,
             "scripts" => $scripts,
             "categories" => $categories,
             "lokasi" => $lokasi,
@@ -40,7 +40,7 @@ class ScriptController extends Controller
     public function show(Script $script)
     {
         return view('script', [
-            "title" => "Single Script",
+            "title" => "Naskah Satuan",
             "script" => $script
         ]);
     }

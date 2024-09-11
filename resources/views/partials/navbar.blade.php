@@ -26,7 +26,7 @@
                             </a>
                             <ul class="dropdown-menu dropdown-menu-end">
                                 <li><a class="dropdown-item" href="/dashboard"><i class="bi bi-layout-text-window me-2"></i>
-                                        My Dashboard</a></li>
+                                         Dashboard Saya</a></li>
                                 <li>
                                     <hr class="dropdown-divider">
                                 </li>

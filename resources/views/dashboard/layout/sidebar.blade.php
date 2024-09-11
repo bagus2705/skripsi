@@ -17,7 +17,7 @@
                         <li class="nav-item">
                             <a class="nav-link" href="/dashboard/bookmarks">
                                 <span class="align-text-bottom"></span>
-                                Your Bookmarks
+                                Bookmark Anda
                             </a>
                         </li>
                     </ul>
@@ -43,6 +43,16 @@
                     mt-4 mb-1 text-muted">
                             <span>Admin</span>
                         </h6>
+
+                        <ul class="nav flex-column">
+                            <li class="nav-item">
+                                <a class="nav-link {{ Request::is('dashboard/scripts*') ? 'active' : '' }}"
+                                    aria-current="page" href="/dashboard/scripts">
+                                    <span class="align-text-bottom"></span>
+                                    Naskah
+                                </a>
+                            </li>
+                        </ul>
                         <ul class="nav flex-column">
                             <li class="nav-item">
                                 <a class="nav-link {{ Request::is('dashboard/categories*') ? 'active' : '' }}"
@@ -54,10 +64,10 @@
                         </ul>
                         <ul class="nav flex-column">
                             <li class="nav-item">
-                                <a class="nav-link {{ Request::is('dashboard/scripts*') ? 'active' : '' }}"
-                                    aria-current="page" href="/dashboard/scripts">
+                                <a class="nav-link {{ Request::is('dashboard/users*') ? 'active' : '' }}"
+                                    aria-current="page" href="/dashboard/users">
                                     <span class="align-text-bottom"></span>
-                                    Naskah
+                                    User
                                 </a>
                             </li>
                         </ul>

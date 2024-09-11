@@ -2,13 +2,13 @@
 
 @section('container')
     <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
-        <h1 class="h2">Create New Kategori</h1>
+        <h1 class="h2">Tambah Kategori Baru</h1>
     </div>
     <div class="col-lg 8">
         <form method="post" action="/dashboard/categories" class="mb-5" enctype="multipart/form-data">
             @csrf
             <div class="mb-3">
-                <label for="name" class="form-label">Name</label>
+                <label for="name" class="form-label">Nama <span class="text-danger">*</span> </label>
                 <input type="text" class="form-control @error('name') is-invalid @enderror" id="name"
                     name="name" autofocus required value={{ old('name') }}>
                 @error('name')
@@ -18,7 +18,7 @@
                 @enderror
             </div>
             <div class="mb-3">
-                <label for="slug" class="form-label">Slug</label>
+                <label for="slug" class="form-label">Slug <span class="text-danger">*</span> </label>
                 <input type="text" class="form-control @error('slug') is-invalid @enderror" id="slug" name="slug"
                     readonly value={{ old('slug') }}>
                 @error('slug')
@@ -28,7 +28,7 @@
                 @enderror
             </div>
             
-            <button type="submit" class="btn btn-primary">Create Category</button>
+            <button type="submit" class="btn btn-primary">Tambah Kategori</button>
         </form>
     </div>
     <script>

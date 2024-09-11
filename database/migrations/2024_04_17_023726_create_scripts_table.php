@@ -12,8 +12,9 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('scripts', function (Blueprint $table) {
-            $table->id();
-            $table->foreignId('category_id')->constrained()->onDelete('cascade');
+            $table->increments('id');
+            $table->unsignedInteger('category_id'); 
+            $table->foreign('category_id')->references('id')->on('categories')->onDelete('cascade');
             $table->string('title');
             $table->string('pengarang')->nullable();
             $table->string('lokasi')->nullable();
