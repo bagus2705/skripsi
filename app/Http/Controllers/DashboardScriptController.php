@@ -16,10 +16,8 @@ class DashboardScriptController extends Controller
      */
     public function index(Request $request)
     {
-        // Capture the search query
         $search = $request->input('search');
 
-        // Fetch scripts based on the title only, paginate results
         $scripts = Script::query()
             ->when($search, function ($query, $search) {
                 return $query->where('title', 'like', '%' . $search . '%');

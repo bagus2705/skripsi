@@ -11,6 +11,13 @@
         </div>
     @endif
     <div class="table-responsive col-lg-8">
+        <form action="/dashboard/users" method="GET" class="col-lg-6 mb-3">
+            <div class="input-group">
+                <input type="text" name="search" class="form-control" placeholder="Cari email"
+                    value="{{ request('search') }}">
+                <button class="btn btn-primary" type="submit">Cari</button>
+            </div>
+        </form>
         <table class="table table-striped table-sm">
             <thead>
                 <tr>

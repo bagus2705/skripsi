@@ -14,10 +14,8 @@ class DashboardCategoryController extends Controller
      */
     public function index(Request $request)
     {
-        // Capture search query from the request
         $search = $request->input('search');
 
-        // Modify the query to filter categories by name
         $categories = Category::query()
             ->when($search, function ($query, $search) {
                 return $query->where('name', 'like', '%' . $search . '%');

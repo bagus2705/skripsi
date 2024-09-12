@@ -10,10 +10,18 @@ class DashboardUserController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(Request $request)
     {
+        $search = $request->input('search');
+
+        $users = User::query()
+            ->when($search, function ($query, $search) {
+                return $query->where('email', 'like', '%' . $search . '%');
+            })
+            ->paginate(15);
+
         return view('dashboard.users.index', [
-            'users' => User::paginate(15),
+            'users' => $users,
         ]);
     }
 
