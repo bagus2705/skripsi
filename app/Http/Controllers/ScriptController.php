@@ -24,7 +24,7 @@ class ScriptController extends Controller
 
         if (request('category')) {
             $category = Category::firstWhere('slug', request('category'));
-            $title .= ' in ' . $category->name;
+            $title .= ' di ' . $category->name;
         }
 
         return view('scripts', [

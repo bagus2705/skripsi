@@ -120,7 +120,7 @@
                     <p class="text-danger">{{ $message }}</p>
                 @enderror
             </div>
-            <button type="submit" class="btn btn-primary">Buat Naskah</button>
+            <button type="submit" class="btn btn-primary">Tambah Naskah</button>
         </form>
     </div>
     <script>

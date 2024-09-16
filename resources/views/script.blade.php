@@ -50,7 +50,7 @@
                     </div>
                     <div class="col-md-4">
                         <div class="author-category-box p-3 border rounded">
-                            <p><strong>Author:</strong> <a
+                            <p><strong>Pengarang:</strong> <a
                                     class="text-decoration-none text-dark">{{ $script->pengarang ?? 'N/A' }}</a></p>
                             <p><strong>Kategori:</strong> <a
                                     class="text-decoration-none text-dark">{{ $script->category->name }}</a></p>
