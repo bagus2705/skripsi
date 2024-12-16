@@ -93,7 +93,7 @@ class DashboardCategoryController extends Controller
         return redirect('/dashboard/categories')->with('success', 'Category Deleted');
     }
 
-    
+
     public function checkSlug(Request $request)
     {
         $slug = SlugService::createSlug(Category::class, 'slug', $request->title);

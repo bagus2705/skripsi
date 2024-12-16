@@ -13,8 +13,8 @@ return new class extends Migration
     {
         Schema::create('bookmarks', function (Blueprint $table) {
             $table->increments('id');
-            $table->unsignedInteger('user_id');  
-            $table->unsignedInteger('script_id'); 
+            $table->unsignedInteger('user_id');
+            $table->unsignedInteger('script_id');
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
             $table->foreign('script_id')->references('id')->on('scripts')->onDelete('cascade');
         });

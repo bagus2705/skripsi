@@ -13,14 +13,19 @@ class ScriptController extends Controller
     {
         $title = '';
         $categories = Category::orderBy('name', 'asc')->get();
+        $all = Script::orderBy('title')
+            ->filter(request(['search', 'category', 'lokasi', 'tahun', 'bahasa']))
+            ->paginate(200)
+            ->withQueryString();
+
         $scripts = Script::orderBy('title')
-            ->filter(request(['search', 'category','lokasi', 'tahun', 'bahasa']))
+            ->filter(request(['search', 'category', 'lokasi', 'tahun', 'bahasa']))
             ->paginate(15)
             ->withQueryString();
 
-        $lokasi = $scripts->unique('lokasi')->sortBy('lokasi');
-        $tahun = $scripts->unique('tahun')->sortBy('tahun');
-        $bahasa = $scripts->unique('bahasa')->sortBy('bahasa');
+        $lokasi = $all->unique('lokasi')->sortBy('lokasi');
+        $tahun = $all->unique('tahun')->sortBy('tahun');
+        $bahasa = $all->unique('bahasa')->sortBy('bahasa');
 
         if (request('category')) {
             $category = Category::firstWhere('slug', request('category'));
@@ -44,5 +49,4 @@ class ScriptController extends Controller
             "script" => $script
         ]);
     }
-    
 }

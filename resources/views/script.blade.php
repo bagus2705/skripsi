@@ -27,7 +27,8 @@
                         <div style="max-height:350px;overflow:hidden">
                             @if ($script->image)
                                 <img src="{{ asset('storage/' . $script->image) }}" alt="{{ $script->category->name }}"
-                                    class="img-fluid mt-3">
+                                    class="img-fluid mt-3"
+                                    style="height: 600px; object-fit: cover;">
                             @else
                                 <div class="text-center mt-3">
                                     <span class="text-muted">Tidak ada gambar tersedia</span>

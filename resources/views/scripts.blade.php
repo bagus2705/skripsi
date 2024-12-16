@@ -9,7 +9,7 @@
                 <form action="/scripts" method="GET">
                     <div class="mb-3">
                         <input type="text" class="form-control" id="search" name="search"
-                            value="{{ request('search') }}" placeholder="Search...">
+                            value="{{ request('search') }}" placeholder="Cari...">
                     </div>
                     <button type="submit" class="btn btn-primary w-100">Cari</button>
                 </form>
@@ -167,7 +167,7 @@
                                         <h5 class="card-title text-center ">{{ $script->title }}</h5>
                                         @if ($script->image)
                                             <img src="{{ asset('storage/' . $script->image) }}"
-                                                alt="{{ $script->category->name }}" class="card-img-top img-fluid mb-3">
+                                                alt="{{ $script->category->name }}" class="card-img-top img-fluid mb-3" style="height: 200px; object-fit: cover;">
                                         @else
                                             <div class="text-center mb-3">
                                                 <span class="text-muted">Tidak ada gambar tersedia</span>

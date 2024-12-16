@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('scripts', function (Blueprint $table) {
             $table->increments('id');
-            $table->unsignedInteger('category_id'); 
+            $table->unsignedInteger('category_id');
             $table->foreign('category_id')->references('id')->on('categories')->onDelete('cascade');
             $table->string('title');
             $table->string('pengarang')->nullable();
