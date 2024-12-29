@@ -1,17 +1,19 @@
-    <header class="navbar navbar-dark sticky-top bg-dark flex-md-nowrap p-0 shadow">
-        <a class="navbar-brand col-md-3 col-lg-2 me-0 px-3 fs-6" href="#">Katalogisasi</a>
-        <button class="navbar-toggler position-absolute d-md-none collapsed" type="button" data-bs-toggle="collapse"
-            data-bs-target="#sidebarMenu" aria-controls="sidebarMenu" aria-expanded="false"
-            aria-label="Toggle navigation">
+<header class="navbar navbar-dark bg-dark sticky-top shadow">
+    <div class="container-fluid">
+        <a class="navbar-brand me-auto fs-6" href="#">Katalogisasi</a>
+        <button class="navbar-toggler d-md-none" type="button" data-bs-toggle="collapse" 
+                data-bs-target="#sidebarMenu" aria-controls="sidebarMenu" aria-expanded="false" 
+                aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
-        <div class="navbar-nav">
-            <div class="nav-item text-nowrap">
-                <form action="/logout" method="post">
-                    @csrf
-                    <button type="submit" class="nav-link px-3 bg-dark border-0">
-                    <i class="bi bi-box-arrow-left"></i>Logout</button>
-                </form>
-            </div>
+
+        <div class="d-flex align-items-center">
+            <form action="/logout" method="post" class="d-flex align-items-center m-0">
+                @csrf
+                <button type="submit" class="btn btn-dark border-0 text-nowrap d-flex align-items-center">
+                    <i class="bi bi-box-arrow-left me-1"></i> Logout
+                </button>
+            </form>
         </div>
-    </header>
+    </div>
+</header>

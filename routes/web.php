@@ -8,6 +8,7 @@ use App\Http\Controllers\{
     DashboardCategoryController,
     DashboardScriptController,
     DashboardUserController,
+    DashboardController,
     OcrController,
     BookmarkController
 };
@@ -28,9 +29,7 @@ Route::get('/register', [RegisterController::class, 'index'])->middleware('guest
 Route::post('/register', [RegisterController::class, 'store']);
 
 // Dashboard routes
-Route::get('/dashboard', function () {
-    return view('dashboard.index');
-})->middleware('auth');
+Route::get('/dashboard', [DashboardController::class, 'index'])->middleware('auth');
 
 // Admin category routes
 Route::get('/dashboard/categories/checkSlug', [DashboardCategoryController::class, 'checkSlug']);

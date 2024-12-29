@@ -162,24 +162,32 @@
                     <div class="row row-cols-1 row-cols-md-3 g-4">
                         @forelse ($scripts as $script)
                             <div class="col">
-                                <div class="card h-100">
-                                    <div class="card-body">
-                                        <h5 class="card-title text-center ">{{ $script->title }}</h5>
-                                        @if ($script->image)
-                                            <img src="{{ asset('storage/' . $script->image) }}"
-                                                alt="{{ $script->category->name }}" class="card-img-top img-fluid mb-3" style="height: 200px; object-fit: cover;">
-                                        @else
-                                            <div class="text-center mb-3">
-                                                <span class="text-muted">Tidak ada gambar tersedia</span>
-                                            </div>
-                                        @endif
-                                        <h7>{{ $script->category->name }}</h7>
-                                        <p class="card-text mt-3">{{ Str::limit(strip_tags($script->detail), 100) }}</p>
-                                        <a href="/scripts/{{ $script->slug }}"
-                                            class="btn btn-primary text-decoration-none">Baca Selengkapnya</a>
-                                    </div>
-                                </div>
-                            </div>
+    <div class="card h-100 d-flex flex-column">
+        <div class="card-body d-flex flex-column">
+            <div class="text-center">
+                <h5 class="card-title text-truncate" title="{{ $script->title }}">{{ $script->title }}</h5>
+            </div>
+            @if ($script->image)
+                <img src="{{ asset('storage/' . $script->image) }}" 
+                     alt="{{ $script->category->name }}" 
+                     class="card-img-top img-fluid mb-3 mx-auto" 
+                     style="height: 200px; width: auto; object-fit: cover;">
+            @else
+                <div class="text-center mb-3">
+                    <span class="text-muted">Tidak ada gambar tersedia</span>
+                </div>
+            @endif
+            <h7 class="text-center text-muted">{{ $script->category->name }}</h7>
+            <p class="card-text mt-3 flex-grow-1">{{ Str::limit(strip_tags($script->detail), 100) }}</p>
+            <div class="mt-auto">
+                <a href="/scripts/{{ $script->slug }}" 
+                   class="btn btn-primary text-decoration-none w-100">Baca Selengkapnya</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+
                         @empty
                             <p class="text-center fs-4">Tidak ada naskah tersedia</p>
                         @endforelse

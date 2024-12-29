@@ -69,9 +69,9 @@
                     @enderror
                 </div>
                 <div class="mb-3">
-                    <label for="tahun" class="form-label">Tahun</label>
-                    <input type="text" class="form-control @error('tahun') is-invalid @enderror"
-                        id="tahun" name="tahun"
+<label for="tahun" class="form-label">Tahun <span class="text-danger">*</span> <small>(Maksimal tahun {{ date('Y') - 50 }} — Naskah kuno maksimal lebih dari 50 tahun lalu)</small>
+    </label>                    <input type="text" class="form-control @error('tahun') is-invalid @enderror"
+                        id="tahun" name="tahun" required
                         value="{{ old('tahun', $script->tahun) }}">
                     @error('tahun')
                         <div class="invalid-feedback">
