@@ -10,7 +10,8 @@ use App\Http\Controllers\{
     DashboardUserController,
     DashboardController,
     OcrController,
-    BookmarkController
+    BookmarkController,
+    PasswordResetController
 };
 
 // Home routes
@@ -25,6 +26,7 @@ Route::get('/login', [LoginController::class, 'index'])->name('login')->middlewa
 Route::post('/login', [LoginController::class, 'authenticate']);
 Route::post('/logout', [LoginController::class, 'logout']);
 
+// Register routes
 Route::get('/register', [RegisterController::class, 'index'])->middleware('guest');
 Route::post('/register', [RegisterController::class, 'store']);
 
@@ -57,3 +59,7 @@ Route::middleware('auth')->group(function () {
 
 // Admin user routes
 Route::resource('/dashboard/users', DashboardUserController::class)->middleware('admin');
+
+//Password reset routes
+Route::get('/password/reset', [PasswordResetController::class, 'showResetForm'])->name('password.reset');
+Route::post('/password/reset', [PasswordResetController::class, 'resetPassword'])->name('password.update');
